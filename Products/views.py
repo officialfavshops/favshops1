@@ -14,10 +14,10 @@ def add_products(request):
         if form.is_valid():
             product = form.save(commit=False)
             #dis_price = int(form.cleaned_data['discount_price'])
-            act_price = int(form.cleaned_data['actual_price'])
-            mrg_price =int(form.cleaned_data['margin_price'])
-            rtl_price = int(form.cleaned_data['retail_price'])
-            discount_price = int(mrg_price) + int(rtl_price)
+            act_price = float(form.cleaned_data['actual_price'])
+            mrg_price =float(form.cleaned_data['margin_price'])
+            rtl_price = float(form.cleaned_data['retail_price'])
+            discount_price = float(mrg_price) + float(rtl_price)
             product.discount_price = str(discount_price)
             per = math.ceil((discount_price / act_price) * 100)
             per = 100 - per

@@ -58,10 +58,10 @@ def cart_checkout(request):
     address = Address.objects.filter(mobile_number = mnumber).first()
     total_product = len(cart)
     for data in cart:
-        total += int(data.product.discount_price)
+        total += float(data.product.discount_price)
 
     if total <= 100:
-            delivery_charge = 10
+        delivery_charge = 10
     elif total > 100 and total <= 200:
         delivery_charge = 15
     elif total > 200 and total <= 350:
@@ -74,7 +74,7 @@ def cart_checkout(request):
     final_price = delivery_charge + total
 
     if request.method == 'POST':
-        total = 0
+        total = 0.0
         number = request.user.mobile_number
         if address:
             form = address_form(request.POST or None,instance=address)
@@ -82,7 +82,7 @@ def cart_checkout(request):
             form = address_form(request.POST or None)
 
         for data in cart:
-            total += int(data.product.discount_price)
+            total += float(data.product.discount_price)
 
         if total <= 100:
             delivery_charge = 10
@@ -182,14 +182,14 @@ def cart_checkout(request):
 
 def create_order(request,response_dict):
     mnumber = request.user.mobile_number
-    total = 0
+    total = 0.0
     response_dict = response_dict
 
     cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
     address = Address.objects.filter(mobile_number = mnumber).first()
     total_product = len(cart)
     for data in cart:
-        total += int(data.product.discount_price)
+        total += float(data.product.discount_price)
 
     id = Order.get_order_id(request)
     order = Order(order_id = id,mobile_number=request.user.mobile_number,cart=cart,total_price = total,address=address)
@@ -209,7 +209,7 @@ def generate_id():
 
 def create_order_cod(request):
     mnumber = request.user.mobile_number
-    total = 0
+    total = 0.0
     delivery_charge = 0
     cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
     address = Address.objects.filter(mobile_number = mnumber).first()
@@ -220,7 +220,7 @@ def create_order_cod(request):
     total_address = request.user.first_name + " " + request.user.last_name + " , " + address.at + " , " + address.post + " , " + address.panchayat + " , " + address.dist + " , " + address.pin + " , " + al_number
     total_product = len(cart)
     for data in cart:
-        total += int(data.product.discount_price)
+        total += float(data.product.discount_price)
     #id = Orderid.generate_id()
 
     if total <= 100:

@@ -19,10 +19,10 @@ def index(request):
 
 def cart_page(request):
     mnumber = request.user.mobile_number
-    total = 0
+    total = 0.0
     cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
     for data in cart:
-        total += int(data.product.discount_price) * int(data.product.quantity.split(' ')[0])
+        total += float(data.product.discount_price) * float(data.product.quantity.split(' ')[0])
     return render(request,'cart.html',{'cart':cart,'total':total})
 
 def user_register(request):
@@ -47,9 +47,9 @@ def about(request):
 def order_history(request):
     mnumber = request.user.mobile_number
     orders = Order.objects.filter(mobile_number = mnumber).order_by('-order_date').filter(order_canceled=False)
-    total = 0
+    total = 0.0
     for ord in orders:
-        total += int(ord.price)
+        total += float(ord.price)
 
 
     return render(request,'order_history.html',{'orders':orders,'total':total})
@@ -103,7 +103,7 @@ def not_delivered(request):
 
     for id in sorted_not_delivered_ids:
         list = []
-        total_price = 0
+        total_price = 0.0
         delivery_charge = 0
         for j in not_delivered:
             if j.order_id == id:
