@@ -22,7 +22,7 @@ def delete_packed_item(request,pk):
     order.order_canceled = True
     order.save()
 
-    return redirect('not_delivered')
+    return redirect('delivery_boy_page')
 
 def order_delivered(request):
     if request.method == 'POST':
