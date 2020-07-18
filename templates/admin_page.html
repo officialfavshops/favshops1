@@ -1,0 +1,103 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="{% url 'all_products'%}">Admin Page</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <!--<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                            <li><a href="#">Page 1-3</a></li>
+                        </ul>
+                    </li>-->
+                    <li><a href="{% url 'add_products' %}">Add Products</a></li>
+                    <li class="active"><a href="{% url 'all_products' %}">All Products</a></li>
+                    <li><a href="{% url 'admin_order_summary' %}">Order Summary</a></li>
+                </ul>
+                <!--<ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>-->
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="container">
+            {% if messages %} {% for msg in messages %}
+
+            <div class="alert alert-{{msg.level_tag}}" role="alert" style="margin-top: 5px;">
+                {{msg.message}}
+            </div>
+
+            {% endfor %} {% endif %}
+            <h1 style="text-align: center;font-weight:bold;color:brown;"> All Products </h1>
+
+            <hr> {% if products %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Sl No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Retail Price</th>
+                        <th scope="col">Margin Price</th>
+                        <th scope="col">Discount Price</th>
+                        <th scope="col">Actual Price</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                {% for data in products %}
+                <tbody>
+                    <tr>
+                        <td>{{forloop.counter0}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.brand}}</td>
+                        <td>{{data.retail_price}}</td>
+                        <td>{{data.margin_price}}</td>
+                        <td>{{data.discount_price}}</td>
+                        <td>{{data.actual_price}}</td>
+
+                        <th><a class="btn btn-primary" href="{% url 'edit_product' pk=data.pk %}" style="color: white;">Edit</a></th>
+                        <th><a class="btn btn-danger" href="{% url 'delete_product' pk=data.pk %}" style="color: white;"> Delete </a></th>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+            <hr> {% endif %}
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

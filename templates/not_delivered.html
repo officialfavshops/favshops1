@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Delivery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Float four columns side by side */
+        
+        .column {
+            float: left;
+            width: 50%;
+            padding: 0 10px;
+        }
+        /* Remove extra left and right margins, due to padding */
+        
+        .row {
+            margin: 0 -5px;
+        }
+        /* Clear floats after the columns */
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Responsive columns */
+        
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+        /* Style the counter cards */
+        
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="#">Delivery Page</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <!--<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                            <li><a href="#">Page 1-3</a></li>
+                        </ul>
+                    </li>-->
+                    <li><a href="{% url 'delivery_boy_page' %}">Not Packed</a></li>
+                    <li class="active"><a href="{% url 'not_delivered' %}">Not Delivered</a></li>
+                </ul>
+                <!--<ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>-->
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h3 style="text-align: center;font-weight:bold;color:green;">Not Delivered Orders</h3>
+        <hr style="border-color:blue;"> {% for id,order in dict.items %}
+        <h3 style="font-weight: bold;">{{id}}</h3>
+        {% for item in order %} {% if not forloop.last %}
+        <h4>{{item.name}} | {{item.quantity}} | {{item.price}}
+            <a href="{% url 'delete_delivery_item' pk=item.pk%}"><span class="fa fa-times" style="color: darkcyan;margin-left:7px;"></span></a>
+        </h4>
+        {% else %}
+        <p style="font-size: 20px;"><span style="font-weight: bold;color:black;">Total : </span><span>{{item.0.0}}</span></p>
+        <p style="font-size: 20px;"><span style="font-weight: bold;color:black;">Address : </span><span>{{item.0.1}}</span></p>
+        <p style="font-size: 20px;"><span style="font-weight: bold;color:black;">Contact No. : </span><span><a href="tel:{{item.0.2}}" style="text-decoration: none;">{{item.0.2}}</a></span></p>
+        <p>
+            <form action="{% url 'order_delivered' %}" method="POST">
+                {% csrf_token %}
+                <div>
+                    <input type="hidden" name="total_price" value="{{item.0.0}}">
+                    <input type="hidden" name="id" value="{{id}}">
+                    <span style="color: black;font-weight:bold;">Payment Mode :</span>
+                    <input type="radio" name="paymode" value="cod" checked required>
+                    <label for="contactChoice1">COD</label>
+
+                    <input type="radio" name="paymode" value="paytm" disabled>
+                    <label for="contactChoice2">Paytm</label>
+
+                    <input type="radio" name="paymode" value="upi" disabled>
+                    <label for="contactChoice2">UPI</label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success"> Deliver </button>
+                </div>
+            </form>
+
+        </p>
+
+        {% endif %} {% endfor %}
+
+        <hr style="border-color:inherit;"> {% endfor %}
+
+    </div>
+</body>
+
+</html>

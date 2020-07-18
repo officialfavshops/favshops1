@@ -1,0 +1,1 @@
+from grocery_shop.wsgi import application

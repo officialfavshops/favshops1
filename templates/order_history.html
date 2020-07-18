@@ -1,0 +1,76 @@
+{% extends 'base.html' %}{% load static %} {% block content %}
+
+<div class="banner-top">
+    <div class="container">
+        <h3>Order History</h3>
+        <h4><a href="/">Home</a><label>/</label>Orders</h4>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<div class="login">
+
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3>Your Order History</h3>
+            {% if messages%}
+            <h4 style="color: red;margin-bottom:5px;font-weight:bold;">{{messages}}</h4>
+            {% endif %} {% if orders %} {% for order in orders %}
+            <div class="row" style="background-color:rgb(245, 240, 240);border-radius:10px;">
+                <div class="col-6 col-sm-4"><img src="{{order.image.url}}" alt="image" class="img-responsive" height="170" width="300"></div>
+                <div class="col-8 col-sm-6">
+                    <p style="margin-top: 3px;"><strong>Order Id</strong> : {{order.order_id}}</p>
+                    <p style="margin-top: 3px;"><strong>Name</strong> : {{order.name}}</p>
+                    {% if order.brand %}
+                    <p><strong>Brand</strong> : {{order.brand}}</p>
+                    {% endif %}
+                    <p><strong>Price</strong> : {{order.price}}</p>
+                    <p><strong>Quantity</strong> : {{order.quantity}}</p>
+                    <p><strong>Payment Mode</strong> : {{order.payment_mode}}</p>
+                    <p><strong>Date</strong> : {{order.date}}</p>
+                    <p><strong>Status</strong> : <span style="color: brown;">{{order.status}}</span></p>
+
+                </div>
+                <div class="forg">
+                    {% if not order.packed and not order.delivered %}
+                    <a href="{% url 'order/cancel_order' pk=order.pk %}" class="forg-right" style="margin-top: 3px;margin-right:2px;"><button class="btn btn-warning">Cancel Order</button></a>{% endif %}
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <hr> {% endfor %}
+            <!--<div class="forg">
+                <a href=""><button class="btn btn-primary">Total Price</button></a>
+            </div>-->
+            <div class="forg" style="align-items: center;margin-top:3px;">
+                <h4 class="forg-left" style="margin-bottom:20px;"> Total Amount : {{total}}</h4>
+                <div class="clearfix"></div>
+            </div>
+            {% else %}
+            <h4 style="text-align: center;font-weight:bold;">Your Order History is empty</h4>{% endif %}
+
+        </div>
+        <div class="forg">
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+{% block javascript %}
+<script type="text/javascript">
+    $('#quantity').change(function() {
+        console.log("Hey quantity");
+        var quantity = $(this).val();
+        $.ajax({
+            url: '{% url "change_quantity" %}',
+            data: {
+                'quantity': quantity,
+                'pk': $('#quantity').attr('data-pk')
+            },
+            dataType: "json"
+
+        })
+    });
+</script>
+{% endblock %} {% endblock %}

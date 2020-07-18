@@ -1,0 +1,53 @@
+{% extends 'base.html' %}{% load static %}{% load widget_tweaks %} {% block content %}
+
+<div class="banner-top">
+    <div class="container">
+        <h3>Payment</h3>
+        <h4><a href="/">Home</a><label>/</label>Payment</h4>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<div class="login">
+
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3> Payment </h3>
+            {% if messages%}
+            <h4 style="color: red;margin-bottom:5px;font-weight:bold;">{{messages}}</h4>
+            {% endif %}
+
+            <div class="forg" style="align-items: center;margin-top:3px;">
+                <h4 class="forg-left" style="margin-bottom:10px;">Your Final Price : <strong>{{final_price}}</strong></h4>
+
+                <div class="clearfix"></div>
+            </div>
+            <h5 style="margin-bottom: 15px;">Your Total Product : <strong>{{total_product}}</strong></h5>
+
+            <h4 style="text-align: center;color:cadetblue;font-weight:bold;margin-top:5px;margin-bottom:5px;"> Delivery Address </h4>
+            <div style="border: 1px;padding:10px;background-color:antiquewhite;border-radius:10px; ">
+                <h5>{{address}}</h5>
+            </div>
+            <h4 style="text-align: center;color:cadetblue;font-weight:bold;margin-top:5px;margin-bottom:5px; "> Choose Payment Mode </h4>
+
+            <div class=" text-center" style="margin-top: 10px;margin-bottom:10px;">
+                <form action="{% url 'payment_mode' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="radio" name="payment" value="paytm" required disabled>
+                    <label for="paytm" style="color: gray;">Paytm / Debit / Credit / UPI</label><br>
+                    <input type="radio" name="payment" value="cod">
+                    <label for="cod">Cash on delivery</label><br>
+
+                    <button type="submit" class="btn btn-warning" style="margin-top: 10px;"> Process </button>
+                </form>
+            </div>
+            <div class="forg " style="margin-top: 10px; ">
+                <a href="{% url 'cart_page' %} " class="forg-left ">Return to cart</a>
+                <a href="{% url 'cart_checkout' %} " class="forg-right "> Return to checkout </a>
+                <div class="clearfix "></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock%}

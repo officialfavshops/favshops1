@@ -1,0 +1,152 @@
+{% extends 'base.html'%} {% load static %} {% block content %}
+<!--banner-->
+<div class="banner-top">
+    <div class="container">
+        <h3>Register</h3>
+        <h4><a href="/">Home</a><label>/</label>Register</h4>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<!--login-->
+
+<div class="login">
+    <div class="main-agileits">
+        <div class="form-w3agile form1">
+            <h3>Register</h3>
+            <h4 id="error-msg" style="margin-top:-10px;margin-bottom:5px;color:red;text-align:center;"></h4>
+            <form action="{% url 'user/register' %}" method="post" id="form">
+                {% csrf_token %}
+
+                <div class="key">
+                    <i class="fa fa-mobile" style="color:darkorange;" aria-hidden="true"></i>
+                    <input type="text" id="mobile_number" name="mobile_number" required><span style="color: gray;font-weight:bold;">Mobile Number</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-user" style="color: blueviolet;" aria-hidden="true"></i>
+                    <input type="text" name="first_name" required><span style="color: gray;font-weight:bold;">First Name</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-user" style="color: blueviolet;" aria-hidden="true"></i>
+                    <input type="text" name="last_name" required><span style="color: gray;font-weight:bold;">Last Name</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-envelope" style="color: red;" aria-hidden="true"></i>
+                    <input type="text" name="email" id="email" required><span style="color: gray;font-weight:bold;">Email</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-lock" style="color: lightseagreen;" aria-hidden="true"></i>
+                    <input type="Password" name="password" id="password" required><span style="color: gray;font-weight:bold;">Password</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-lock" style="color: lightseagreen;" aria-hidden="true"></i>
+                    <input type="Password" name="confirm_password" id="confirm_password" required><span style="color: gray;font-weight:bold;">Confirm Password</span>
+                    <div class="clearfix"></div>
+
+                </div>
+                <input type="submit" id="register" value="Send OTP">
+            </form>
+        </div>
+    </div>
+</div>
+{% block javascript %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+    var is_taken_number = false;
+    var is_taken_email = false;
+    $('#mobile_number').change(function() {
+        var mobile_number = $(this).val();
+
+        $.ajax({
+            url: '{% url "validate_mobileno" %}',
+            data: {
+                'mobile_number': mobile_number
+
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.is_taken) {
+                    alert("This mobile_number is already exist ");
+                    is_taken_number = true;
+                } else {
+                    is_taken_number = false;
+                }
+
+            }
+        })
+    });
+
+    $('#email').change(function() {
+        var email = document.getElementById('email').value;
+        $.ajax({
+            url: '{% url "validate_email" %}',
+            data: {
+                'email': email
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.is_taken) {
+                    is_taken_email = true;
+                    alert("This email is already taken ");
+                } else {
+                    is_taken_email = false;
+                }
+            }
+        })
+    });
+
+    const form = document.querySelector('form');
+    const mobile_number = document.getElementById('mobile_number');
+    const password = document.getElementById('password');
+    const cpassword = document.getElementById('confirm_password');
+    const email = document.getElementById('email');
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    form.onsubmit = function(e) {
+
+
+        if (is_taken_number) {
+            e.preventDefault();
+            swal("Mobile Number Exist", "Please use another mobile number to register");
+
+        }
+
+        if (is_taken_email) {
+            e.preventDefault();
+            alert("Please use another email to create your account..");
+        }
+
+        if (mobile_number.value.match(phoneno)) {
+
+        } else {
+            e.preventDefault();
+            console.log(mobile_number.length);
+            alert("Please use a valid Mobile number of 10 digits ");
+        }
+
+        if (email.value.match(mailformat)) {
+
+        } else {
+            e.preventDefault();
+            alert("You have entered an invalid email address!");
+        }
+        if (password.value === cpassword.value) {
+            console.log("Password match");
+        } else {
+            e.preventDefault();
+            alert("Password and Confirm password didn't match ");
+        }
+
+    }
+</script>
+<script>
+</script>
+
+{% endblock %} {% endblock %}

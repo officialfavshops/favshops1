@@ -1,0 +1,42 @@
+{% extends 'base.html'%} {% load static %} {% block content %}
+<!--banner-->
+<div class="banner-top">
+    <div class="container">
+        <h3>Login</h3>
+        <h4><a href="/">Home</a><label>/</label>Login</h4>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--login-->
+
+<div class="login">
+
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3>Login</h3>
+            {% if messages%}
+            <h4 style="color: red;margin-bottom:5px;font-weight:bold;">{{messages}}</h4>
+            {% endif %}
+            <form action="{% url 'user/login' %}" method="post">
+                {% csrf_token %}
+                <div class="key">
+                    <i class="fa fa-mobile" style="color:darkorange;" aria-hidden="true"></i>
+                    <input type="text" id="mobile_number" name="mobile_number" required><span style="color: gray;font-weight:bold;">Mobile Number</span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <i class="fa fa-lock" style="color: lightseagreen;" aria-hidden="true"></i>
+                    <input type="Password" name="password" id="password" required><span style="color: gray;font-weight:bold;">Password</span>
+                    <div class="clearfix"></div>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div class="forg">
+            <a href="{% url 'forget_password' %}" class="forg-left">Forgot Password</a>
+            <a href="{% url 'user_register'%}" class="forg-right">Register</a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

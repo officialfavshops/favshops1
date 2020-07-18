@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Delivery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="#">Delivery Page</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <!--<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                            <li><a href="#">Page 1-3</a></li>
+                        </ul>
+                    </li>-->
+                    <li class="active"><a href="{% url 'delivery_boy_page' %}">Not Packed</a></li>
+                    <li><a href="{% url 'not_delivered' %}">Not Delivered</a></li>
+                </ul>
+                <!--<ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>-->
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="container">
+            <h2 style="text-align: center;font-weight:bold;color:tomato;">Not Packed Orders</h2>
+            <hr style="border-color:blue;"> {% for id,order in dict.items %}
+            <h3>{{id}}</h3>
+            {% for item in order %} {% if item.order_canceled %}
+            <p><strike>{{item.name}} | {{item.quantity}} | {{item.price}}</strike> <span style="font-size: 12px;font-weight:bold;color:chocolate;">Order Canceled</span><a href="{% url 'delete_packed_item' pk=item.pk %}"><span class="fa fa-times" style="color: darkcyan;margin-left:3px;"></span></a></p>
+            {% else %}
+            <p>{{item.name}} | {{item.quantity}} | {{item.price}} <span><a href="{% url 'order_packed' pk=item.pk %}" style="margin-left: 5px;text-decoration:none;">Packed</a></span></p>
+            {% endif %} {% endfor %}
+            <hr style="border-color:inherit;"> {% endfor %}
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

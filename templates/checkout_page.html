@@ -1,0 +1,62 @@
+{% extends 'base.html' %}{% load static %}{% load widget_tweaks %} {% block content %}
+
+<div class="banner-top">
+    <div class="container">
+        <h3>Cart</h3>
+        <h4><a href="/">Home</a><label>/</label>Cart</h4>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<div class="login">
+
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3> Checkout </h3>
+            {% if messages%}
+            <h4 style="color: red;margin-bottom:5px;font-weight:bold;">{{messages}}</h4>
+            {% endif %}
+
+            <!--<div class="forg" style="align-items: center;margin-top:3px;">
+                <h5 class="forg-left" style="margin-bottom:10px;">Your Price : <strong>{{total}}</strong></h5><br>
+                <h5 style="margin-bottom:10h5x;">Delivery Charge : <strong>{{delivery_charge}}</strong></h5><br>
+                <p class="forg-right" style="margin-bottom:10px;">Final Price : <strong>{{final_price}}</strong></p><br>
+                <h5 style="margin-bottom: 15px;">Total Product : <strong>{{total_product}}</strong></h5>
+
+                <div class="clearfix"></div>
+            </div>-->
+            <h5 style="margin-top: -3px;">Your Price : <strong>{{total}}</strong></h5>
+            <h5 style="margin-top: 3px;">Delivery Charge : <strong>{{delivery_charge}}</strong></h5>
+            <h5 style="margin-top: 3px;color:black;">Final Price : <strong>{{final_price}}</strong></h5>
+            <h5 style="margin-top: 3px;">Total Product : <strong>{{total_product}}</strong></h5>
+
+            <h4 style="text-align: center;color:cadetblue;font-weight:bold;"> Delivery Address </h4>
+            <form method="post" novalidate enctype="multipart/form-data">
+                {% csrf_token %} {% for hidden_field in form.hidden_fields %} {{ hidden_field }} {% endfor %} {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in form.non_field_errors %} {{ error }} {% endfor %}
+                </div>
+                {% endif %} {% for field in form.visible_fields %}
+                <div class="form-group">
+                    {{ field.label_tag }} {% if form.is_bound %} {% if field.errors %} {% render_field field class="form-control is-invalid" %} {% for error in field.errors %}
+                    <div class="invalid-feedback" style="color: red;">
+                        {{ error }}
+                    </div>
+                    {% endfor %} {% else %} {% render_field field class="form-control is-valid" %} {% endif %} {% else %} {% render_field field class="form-control" %} {% endif %} {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small> {% endif %}
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-primary"> Save and Pay </button>
+            </form>
+
+        </div>
+        <div class="forg" style="margin-top: 10px;">
+            <a href="{% url 'index' %}" class="forg-left">Shop more</a>
+            <a href="{% url 'cart_page' %}" class="forg-right"> Return to cart </a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
