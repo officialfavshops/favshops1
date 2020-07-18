@@ -66,7 +66,7 @@ def product_details(request,pk):
     return render(request,'product_details.html',{'product':prod})
 
 def delivery_boy(request):
-    not_packed = Order.objects.filter(packed = False).order_by('order_id').filter(delivered=False)
+    not_packed = Order.objects.filter(packed = False).order_by('order_id').filter(delivered=False).filter(order_canceled=False)
     not_delivered = Order.objects.filter(delivered=False)
 
     not_packed_ids = set([i.order_id for i in not_packed])
