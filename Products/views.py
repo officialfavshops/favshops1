@@ -19,7 +19,7 @@ def add_products(request):
             rtl_price = float(form.cleaned_data['retail_price'])
             discount_price = float(mrg_price) + float(rtl_price)
             product.discount_price = str(discount_price)
-            per = math.ceil((discount_price / act_price) * 100)
+            per = ((discount_price / act_price) * 100)
             per = 100 - per
             product.discount_percentage = per
             product.save()
