@@ -9,13 +9,17 @@ class Product(models.Model):
     )
     category = (
         ('Grocery','Grocery'),
-        ('Foods','Foods'),
-        ('Vegetable','Vegetable'),
-        ('Medicine','Medicine'),
-        ('Clothes','Clothes'),
+        ('Snacks','Snacks'),
+        ('Cooking oil','Cooking oil'),
+        ('Tooth paste','Tooth paste'),
+        ('Soap','Soap'),
         ('Beauty_products','Beauty_products'),
         ('Drinks','Drinks'),
-        ('Fruits','Fruits'),
+        ('Masala','Masala'),
+        ('Hair oil','Hair oil'),
+        ('Yeepi noodles','Yeepi noodles'),
+        ('Finail','Finail'),
+        ('Others','Others'),
     )
     boolean = (
         ('True','True'),
@@ -25,15 +29,15 @@ class Product(models.Model):
     name = models.CharField(max_length=30,null=False,blank=False)
     brand = models.CharField(max_length=15,null=True,blank=True)
     quantity = models.CharField(max_length=20,null=False,blank=False)
-    retail_price = models.CharField(max_length=30,null=True,blank=True)
-    margin_price = models.CharField(max_length=30,null=True,blank=True)
+    retail_price = models.CharField(max_length=30,null=False,blank=False)
+    margin_price = models.CharField(max_length=30,null=False,blank=False)
     discount_price = models.CharField(max_length=10,null=True,blank=True)
-    actual_price = models.CharField(max_length=10,null=True,blank=True)
+    actual_price = models.CharField(max_length=10,null=False,blank=False)
     discount_percentage = models.CharField(max_length=15,null=True,blank=True)
     description = models.TextField(null=True,blank=True)
-    image = models.ImageField(upload_to='product_images',null=True,blank=True)
+    image = models.ImageField(upload_to='product_images',null=False,blank=False)
     quality = models.CharField(max_length=15,null=True,blank=True,choices=quality)
-    category = models.CharField(max_length=20,null=True,blank=True,choices=category)
+    category = models.CharField(max_length=20,null=False,blank=False,choices=category)
     special_offer = models.CharField(max_length=20,null=True,blank=True,choices=boolean)
     best_offer = models.CharField(max_length=20,null=True,blank=True,choices=boolean)
     upload_time = models.DateTimeField(auto_now_add=True)
