@@ -239,7 +239,8 @@
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="add">
-                                        <button class="btn btn-danger my-cart-btn my-cart-b" data-id="5" data-name="Lays" data-summary="summary 5" data-price="0.70" data-quantity="1" data-image="{% static 'template/images/of4.png'%}">Add to Cart</button>
+                                        {% if user.is_authenticated %}
+                                        <a href="{% url 'add_to_cart' pk=grc.pk %}" class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</a> {% endif %}
                                     </div>
 
                                 </div>
