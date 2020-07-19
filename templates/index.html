@@ -238,9 +238,9 @@
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="add add-2">
+                                    <div class="add ">
                                         {% if user.is_authenticated %}
-                                        <a href="{% url 'add_to_cart' pk=grc.pk %}" class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</a> {% endif %}
+                                        <button href="{% url 'add_to_cart' pk=grc.pk %}" class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</button> {% endif %}
                                     </div>
 
                                 </div>
