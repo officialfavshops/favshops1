@@ -217,7 +217,7 @@
                         <div class="col-md-3 m-wthree">
                             <div class="col-m">
                                 <a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img">
-                                    <img src="{{grc.image.url}}" class="img-responsive" alt="">
+                                    <a href="{% url 'product_details' pk=grc.pk %}"><img src="{{grc.image.url}}" class="img-responsive" alt=""></a>
                                     <!--<div class="offer">
                                         <p><span>Offer</span></p>
                                     </div>-->
@@ -233,9 +233,9 @@
                                     </div>
                                     <div class="mid-2">
                                         <p style="color:black;"><label><span>&#8377;</span>{{grc.mrp}}</label><em class="item_price"><span>&#8377;</span>{{grc.discount_price}}</em></p>
-                                        <div class="block">
+                                        <!--<div class="block">
                                             <div class="starbox small ghosting"> </div>
-                                        </div>
+                                        </div>-->
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="add ">
@@ -257,7 +257,7 @@
                         <div class="col-md-3 m-wthree">
                             <div class="col-m">
                                 <a href="#" data-toggle="modal" data-target="#myModal5" class="offer-img">
-                                    <img src="{{snk.image.url}}" class="img-responsive" alt="">
+                                    <a href="{% url 'product_details' pk=snk.pk %}"><img src="{{snk.image.url}}" class="img-responsive" alt=""></a>
                                     <!--<div class="offer">
                                         <p><span>Offer</span></p>
                                     </div>-->
@@ -273,9 +273,9 @@
                                     </div>
                                     <div class="mid-2">
                                         <p style="color:black;"><label><span>&#8377;</span>{{snk.mrp}}</label><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em></p>
-                                        <div class="block">
+                                        <!--<div class="block">
                                             <div class="starbox small ghosting"> </div>
-                                        </div>
+                                        </div>-->
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="add">
