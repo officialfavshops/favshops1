@@ -51,7 +51,7 @@
             <hr style="border-color:blue;"> {% for id,order in dict.items %}
             <h3>{{id}}</h3>
             {% for item in order %} {% if item.order_canceled %}
-            <p><strike>{{item.product_name}} | {{item.quantity}} | {{item.price}}</strike> <span style="font-size: 12px;font-weight:bold;color:chocolate;">Order Canceled</span><a href="{% url 'delete_packed_item' pk=item.pk %}"><span class="fa fa-times" style="color: darkcyan;margin-left:3px;"></span></a></p>
+            <p><strike>{{item.name}} | {{item.quantity}} | {{item.price}}</strike> <span style="font-size: 12px;font-weight:bold;color:chocolate;">Order Canceled</span><a href="{% url 'delete_packed_item' pk=item.pk %}"><span class="fa fa-times" style="color: darkcyan;margin-left:3px;"></span></a></p>
             {% else %}
             <p>{{item.product_name}} | {{item.quantity}} | {{item.price}} <span><a href="{% url 'order_packed' pk=item.pk %}" style="margin-left: 5px;text-decoration:none;">Packed</a></span></p>
             {% endif %} {% endfor %}

@@ -97,7 +97,7 @@
         <hr style="border-color:blue;"> {% for id,order in dict.items %}
         <h3 style="font-weight: bold;">{{id}}</h3>
         {% for item in order %} {% if not forloop.last %}
-        <h4>{{item.product_name}} | {{item.quantity}} | {{item.price}}
+        <h4>{{item.name}} | {{item.quantity}} | {{item.price}}
             <a href="{% url 'delete_delivery_item' pk=item.pk%}"><span class="fa fa-times" style="color: darkcyan;margin-left:7px;"></span></a>
         </h4>
         {% else %}
