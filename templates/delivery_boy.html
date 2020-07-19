@@ -34,8 +34,8 @@
                             <li><a href="#">Page 1-3</a></li>
                         </ul>
                     </li>-->
-                    <li class="active"><a href="{% url 'delivery_boy_page' %}">Not Packed</a></li>
-                    <li><a href="{% url 'not_delivered' %}">Not Delivered</a></li>
+                    <li class="active"><a href="{% url 'delivery_boy_page' %}"> Orders </a></li>
+                    <li><a href="{% url 'not_delivered' %}"> Packed </a></li>
                 </ul>
                 <!--<ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -47,7 +47,7 @@
 
     <div class="container">
         <div class="container">
-            <h2 style="text-align: center;font-weight:bold;color:tomato;">Not Packed Orders</h2>
+            <h2 style="text-align: center;font-weight:bold;color:tomato;"> Orders</h2>
             <hr style="border-color:blue;"> {% for id,order in dict.items %}
             <h3>{{id}}</h3>
             {% for item in order %} {% if item.order_canceled %}

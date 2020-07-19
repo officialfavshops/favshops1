@@ -103,8 +103,9 @@ def cart_checkout(request):
             addr = form.save(commit=False)
             addr.mobile_number = mnumber
             addr.save()
+            full_name = form.cleaned_data['full_name']
             at = form.cleaned_data['at']
-            post = form.cleaned_data['post']
+            landmark = form.cleaned_data['landmark']
             panchayat = form.cleaned_data['panchayat']
             pin = form.cleaned_data['pin']
             dist = form.cleaned_data['dist']
@@ -116,7 +117,7 @@ def cart_checkout(request):
             else:
                 al_number = ","
 
-            total_address = fname +  " " + lname + " , " + at + " , " + post + " , " + panchayat + " , " + dist + " , " + pin + " , " + state + " , " + al_number
+            total_address = full_name + " , " + at + " , " + landmark + " , " + panchayat + " , " + dist + " , " + pin + " , " + state + " , " + al_number
             return render(request,'payment_page.html',{'total':total,'delivery_charge':delivery_charge,'final_price':final_price,'address':total_address,'total_product':total_product})
     else:
         form = address_form(instance=address)
@@ -218,8 +219,9 @@ def create_order_cod(request):
     al_number = ","
     if address.alternate_number:
         al_number = address.alternate_number
+    full_name = address.full_name
 
-    total_address = request.user.first_name + " " + request.user.last_name + " , " + address.at + " , " + address.post + " , " + address.panchayat + " , " + address.dist + " , " + address.pin + " , " + al_number
+    total_address = full_name + " , " + address.at + " , " + address.landmark + " , " + address.panchayat + " , " + address.dist + " , " + address.pin + " , " + al_number
     total_product = len(cart)
     for data in cart:
         total += float(data.product.discount_price)

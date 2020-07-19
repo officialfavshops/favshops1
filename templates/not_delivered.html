@@ -81,8 +81,8 @@
                             <li><a href="#">Page 1-3</a></li>
                         </ul>
                     </li>-->
-                    <li><a href="{% url 'delivery_boy_page' %}">Not Packed</a></li>
-                    <li class="active"><a href="{% url 'not_delivered' %}">Not Delivered</a></li>
+                    <li><a href="{% url 'delivery_boy_page' %}"> Orders </a></li>
+                    <li class="active"><a href="{% url 'not_delivered' %}"> Packed </a></li>
                 </ul>
                 <!--<ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -93,7 +93,7 @@
     </nav>
 
     <div class="container">
-        <h3 style="text-align: center;font-weight:bold;color:green;">Not Delivered Orders</h3>
+        <h3 style="text-align: center;font-weight:bold;color:green;"> Packed </h3>
         <hr style="border-color:blue;"> {% for id,order in dict.items %}
         <h3 style="font-weight: bold;">{{id}}</h3>
         {% for item in order %} {% if not forloop.last %}
