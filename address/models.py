@@ -15,7 +15,7 @@ class Address(models.Model):
     dists = (
         ('Jajpur','Jajpur'),
     )
-    full_name = models.CharField(max_length=100,null=True,blank=True)
+    full_name = models.CharField(max_length=100,null=False,blank=False)
     mobile_number = models.CharField(max_length=20,null=True,blank=True)
     at = models.CharField(max_length=50,null=False,blank=False)
     landmark = models.CharField(max_length=50,null=False,blank=False)
