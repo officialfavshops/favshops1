@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-7 single-top-left ">
                 <div class="single-right">
-                    <h3>{{product.name}} ( {{product.quantity}})</h3>
+                    <h3>{{product.product_name}} ( {{product.quantity}})</h3>
                     {% if product.brand %}
                     <h4 style="color: grey;margin-top:3px;">{{product.brand}} </h4>
                     {% else %}
@@ -40,10 +40,10 @@
                     {% endif %}
 
                     <div class="pr-single">
-                        <p class="reduced "><del><span>&#8377;</span>{{product.actual_price}}</del><span>&#8377;</span>{{product.discount_price}}</p>
+                        <p class="reduced "><del><span>&#8377;</span>{{product.mrp}}</del><span>&#8377;</span>{{product.discount_price}}</p>
                     </div>
 
-                    <p class="in-pa"> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                    <p class="in-pa"> {{product.description}} </p>
 
                     <!--<ul class="social-top">
                         <li><a href="#" class="icon facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>

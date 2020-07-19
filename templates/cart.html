@@ -19,12 +19,12 @@
             <div class="row" style="background-color:rgb(245, 240, 240);">
                 <div class="col-6 col-sm-4"><img src="{{obj.product.image.url}}" alt="image" class="img-responsive" height="170" width="300"></div>
                 <div class="col-8 col-sm-6">
-                    <p style="margin-top: 3px;"><strong>Name</strong> : {{obj.product.name}}</p>
+                    <p style="margin-top: 3px;"><strong>Name</strong> : {{obj.product.product_name}}</p>
                     {% if obj.product.brand %}
                     <p><strong>Brand</strong> : {{obj.product.brand}}</p>
                     {% endif %}
                     <p><strong>Your Price</strong> : {{obj.product.discount_price}}</p>
-                    <p><strong>Actual Price</strong> : <strike>{{obj.product.actual_price}}</strike></p>
+                    <p><strong>Actual Price</strong> : <strike>{{obj.product.mrp}}</strike></p>
                     <p><strong>Quantity</strong> : {{obj.product.quantity}}</p>
                     <p style="margin-top: 5px;;"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span> Remove </a> | <label for="quantity">Qty : </label>
                         <select name="quantity" id="quantity" data-pk="{{obj.pk}}">
