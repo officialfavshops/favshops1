@@ -26,13 +26,14 @@ class Product(models.Model):
         ('False','False'),
     )
 
-    name = models.CharField(max_length=30,null=False,blank=False)
+
+    product_name = models.CharField(max_length=30,null=False,blank=False)
     brand = models.CharField(max_length=15,null=True,blank=True)
     quantity = models.CharField(max_length=20,null=False,blank=False)
     retail_price = models.CharField(max_length=30,null=False,blank=False)
     margin_price = models.CharField(max_length=30,null=False,blank=False)
     discount_price = models.CharField(max_length=10,null=True,blank=True)
-    actual_price = models.CharField(max_length=10,null=False,blank=False)
+    mrp = models.CharField(max_length=10,null=False,blank=False)
     discount_percentage = models.CharField(max_length=15,null=True,blank=True)
     description = models.TextField(null=True,blank=True)
     image = models.ImageField(upload_to='product_images',null=False,blank=False)
@@ -41,6 +42,7 @@ class Product(models.Model):
     special_offer = models.CharField(max_length=20,null=True,blank=True,choices=boolean)
     best_offer = models.CharField(max_length=20,null=True,blank=True,choices=boolean)
     upload_time = models.DateTimeField(auto_now_add=True)
+    out_of_stock = models.BooleanField(max_length=20,null=True,blank=True,choices=boolean)
 
     def __str__(self):
         return self.name

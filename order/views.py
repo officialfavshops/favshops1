@@ -43,7 +43,7 @@ def order_delivered(request):
         order_delivery_charges = 0
 
         for ord in co_orders:
-            item = ord.name + " | " + ord.quantity + " | " + ord.price
+            item = ord.product_name + " | " + ord.quantity + " | " + ord.price
             confirm_order += item + " , "
             order_margin_price += int(ord.margin_price)
             mnumber = ord.mobile_number
@@ -53,7 +53,7 @@ def order_delivered(request):
             ord.save()
 
         for ord in can_orders:
-            item = ord.name + " | " + ord.quantity + " | " + ord.price
+            item = ord.product_name + " | " + ord.quantity + " | " + ord.price
             cancel_order += item + " , "
             ord.delivered = True
             ord.save()

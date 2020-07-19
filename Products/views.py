@@ -14,7 +14,7 @@ def add_products(request):
         if form.is_valid():
             product = form.save(commit=False)
             #dis_price = int(form.cleaned_data['discount_price'])
-            act_price = float(form.cleaned_data['actual_price'])
+            act_price = float(form.cleaned_data['mrp'])
             mrg_price =float(form.cleaned_data['margin_price'])
             rtl_price = float(form.cleaned_data['retail_price'])
             discount_price = float(mrg_price) + float(rtl_price)
@@ -23,7 +23,7 @@ def add_products(request):
             per = 100 - per
             product.discount_percentage = per
             product.save()
-            name = form.cleaned_data['name']
+            name = form.cleaned_data['product_name']
             msg = '%s Added Successfully ..'%name
             messages.success(request, msg)
             return redirect('all_products')
@@ -45,7 +45,7 @@ def edit_product(request,pk):
        if product_edit_form.is_valid():
            product = product_edit_form.save(commit=False)
            # dis_price = int(form.cleaned_data['discount_price'])
-           act_price = float(product_edit_form.cleaned_data['actual_price'])
+           act_price = float(product_edit_form.cleaned_data['mrp'])
            mrg_price = float(product_edit_form.cleaned_data['margin_price'])
            rtl_price = float(product_edit_form.cleaned_data['retail_price'])
            discount_price = float(mrg_price) + float(rtl_price)
@@ -54,7 +54,7 @@ def edit_product(request,pk):
            per = 100 - per
            product.discount_percentage = per
            product.save()
-           name = product_edit_form.cleaned_data['name']
+           name = product_edit_form.cleaned_data['product_name']
            msg = '%s Edited Successfully ..' % name
            messages.success(request, msg)
            return redirect('all_products')

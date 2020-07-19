@@ -741,7 +741,7 @@
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href="single.html"> {{obj.name}} </a>( {{obj.quantity}})</h6>
+                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
                             {% if obj.brand %}
                             <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
                             {% else %}
@@ -749,12 +749,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.actual_price}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
 
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
-                            <!--<button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{obj.pk}}" data-name="{{obj.name}}" data-summary="{{obj.description}}" data-price="{{obj.discount_price}}" data-quantity="{{obj.quantity}}" data-image="{% static 'template/images/of16.png'%}">Add to Cart</button>-->
+                            <!--<button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{obj.pk}}" data-name="{{obj.product_name}}" data-summary="{{obj.description}}" data-price="{{obj.discount_price}}" data-quantity="{{obj.quantity}}" data-image="{% static 'template/images/of16.png'%}">Add to Cart</button>-->
                             {% if user.is_authenticated %}
                             <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
                         </div>
