@@ -15,7 +15,11 @@ def index(request):
         mnumber = request.user.mobile_number
         cart = Cart.objects.filter(mobile_number = mnumber)
         cartlen = len(cart)
-    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart})
+    grocery = Product.objects.filter(category='Grocery').order_by('-upload_time')
+    snacks = Product.objects.filter(category='Snacks').order_by('-upload_time')
+    masala = Product.objects.filter(category='Masala').order_by('-upload_time')
+
+    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala})
 
 def cart_page(request):
     mnumber = request.user.mobile_number
