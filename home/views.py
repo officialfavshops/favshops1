@@ -22,7 +22,6 @@ def cart_page(request):
     total = 0.0
     cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
     for data in cart:
-        #total += float(data.product.discount_price) * float(data.product.quantity.split(' ')[0])
         total += float(data.product.discount_price)
     return render(request,'cart.html',{'cart':cart,'total':total})
 
@@ -51,7 +50,6 @@ def order_history(request):
     total = 0.0
     for ord in orders:
         total += float(ord.price)
-
 
     return render(request,'order_history.html',{'orders':orders,'total':total})
 
