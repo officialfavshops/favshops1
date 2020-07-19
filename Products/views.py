@@ -33,8 +33,9 @@ def add_products(request):
 
 def all_products(request):
     products = Product.objects.all().order_by('-upload_time')
+    total_product = len(products)
 
-    return render(request,'admin_page.html',{'products':products})
+    return render(request,'admin_page.html',{'products':products,'total_products':total_product})
 
 def edit_product(request,pk):
     products = Product.objects.all()
