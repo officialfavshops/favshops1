@@ -42,7 +42,20 @@ def edit_product(request,pk):
     if request.method == 'POST':
        product_edit_form = Product_form(request.POST or None,request.FILES or None,instance=product)
        if product_edit_form.is_valid():
-           product_edit_form.save()
+           product = product_edit_form.save(commit=False)
+           # dis_price = int(form.cleaned_data['discount_price'])
+           act_price = float(product_edit_form.cleaned_data['actual_price'])
+           mrg_price = float(product_edit_form.cleaned_data['margin_price'])
+           rtl_price = float(product_edit_form.cleaned_data['retail_price'])
+           discount_price = float(mrg_price) + float(rtl_price)
+           product.discount_price = str(discount_price)
+           per = ((discount_price / act_price) * 100)
+           per = 100 - per
+           product.discount_percentage = per
+           product.save()
+           name = product_edit_form.cleaned_data['name']
+           msg = '%s Edited Successfully ..' % name
+           messages.success(request, msg)
            return redirect('all_products')
     else:
         product_edit_form = Product_form(instance=product)
