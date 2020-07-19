@@ -8,6 +8,7 @@ from order.models import Order
 from User.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .paytm import Checksum
+import math
 
 #MERCHENTID = 'rJXvah34753603915703'
 MERCHANTKEY = 'hTF&Qc@AU9Vf_NdM'
@@ -72,6 +73,7 @@ def cart_checkout(request):
         delivery_charge = 0
 
     final_price = delivery_charge + total
+    final_price = math.floor(final_price)
 
     if request.method == 'POST':
         total = 0.0
