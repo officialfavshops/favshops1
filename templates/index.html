@@ -218,9 +218,9 @@
                             <div class="col-m">
                                 <a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img">
                                     <img src="{{grc.image.url}}" class="img-responsive" alt="">
-                                    <div class="offer">
-                                        <!--<p><span>Offer</span></p>-->
-                                    </div>
+                                    <!--<div class="offer">
+                                        <p><span>Offer</span></p>
+                                    </div>-->
                                 </a>
                                 <div class="mid-1">
                                     <div class="women">
@@ -253,106 +253,39 @@
                 </div>
                 <div class="tab-pane  text-style" id="tab2">
                     <div class=" con-w3l">
+                        {% for snk in snacks %}
                         <div class="col-md-3 m-wthree">
                             <div class="col-m">
                                 <a href="#" data-toggle="modal" data-target="#myModal5" class="offer-img">
-                                    <img src="{% static 'template/images/of4.png'%}" class="img-responsive" alt="">
-                                    <div class="offer">
+                                    <img src="{{snk.image.url}}" class="img-responsive" alt="">
+                                    <!--<div class="offer">
                                         <p><span>Offer</span></p>
-                                    </div>
+                                    </div>-->
                                 </a>
                                 <div class="mid-1">
                                     <div class="women">
-                                        <h6><a href="single.html">Lays</a>(100 g)</h6>
+                                        <h6><a href="single.html">{{snk.product_name}}</a>( {{snk.quantity}} )</h6>
+                                        {% if grc.brand %}
+                                            <p style="margin-top: 5px;color:gray;">{{snk.brand}}</p>
+                                        {% else %}
+                                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                                        {% endif %}
                                     </div>
                                     <div class="mid-2">
-                                        <p><label>$1.00</label><em class="item_price">$0.70</em></p>
+                                        <p style="color:black;"><label><span>&#8377;</span>{{snk.mrp}}</label><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em></p>
                                         <div class="block">
                                             <div class="starbox small ghosting"> </div>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="add">
-                                        <button class="btn btn-danger my-cart-btn my-cart-b" data-id="5" data-name="Lays" data-summary="summary 5" data-price="0.70" data-quantity="1" data-image="{% static 'template/images/of4.png'%}">Add to Cart</button>
+                                        {% if user.is_authenticated %}
+                                        <a href="{% url 'add_to_cart' pk=snk.pk %}"><button class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</button></a> {% endif %}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 m-wthree">
-                            <div class="col-m">
-                                <a href="#" data-toggle="modal" data-target="#myModal6" class="offer-img">
-                                    <img src="{% static 'template/images/of5.png'%}" class="img-responsive" alt="">
-                                    <div class="offer">
-                                        <p><span>Offer</span></p>
-                                    </div>
-                                </a>
-                                <div class="mid-1">
-                                    <div class="women">
-                                        <h6><a href="single.html">Kurkure</a>(100 g)</h6>
-                                    </div>
-                                    <div class="mid-2">
-                                        <p><label>$1.00</label><em class="item_price">$0.70</em></p>
-                                        <div class="block">
-                                            <div class="starbox small ghosting"> </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="add">
-                                        <button class="btn btn-danger my-cart-btn my-cart-b" data-id="6" data-name="Kurkure" data-summary="summary 6" data-price="0.70" data-quantity="1" data-image="{% static 'template/images/of5.png'%}">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 m-wthree">
-                            <div class="col-m">
-                                <a href="#" data-toggle="modal" data-target="#myModal7" class="offer-img">
-                                    <img src="{% static 'template/images/of6.png'%}" class="img-responsive" alt="">
-                                    <div class="offer">
-                                        <p><span>Offer</span></p>
-                                    </div>
-                                </a>
-                                <div class="mid-1">
-                                    <div class="women">
-                                        <h6><a href="single.html">Popcorn</a>(250 g)</h6>
-                                    </div>
-                                    <div class="mid-2">
-                                        <p><label>$2.00</label><em class="item_price">$1.00</em></p>
-                                        <div class="block">
-                                            <div class="starbox small ghosting"> </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="add">
-                                        <button class="btn btn-danger my-cart-btn my-cart-b" data-id="7" data-name="Popcorn" data-summary="summary 7" data-price="1.00" data-quantity="1" data-image="{% static 'template/images/of6.png'%}">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 m-wthree">
-                            <div class="col-m">
-                                <a href="#" data-toggle="modal" data-target="#myModal8" class="offer-img">
-                                    <img src="{% static 'template/images/of7.png'%}" class="img-responsive" alt="">
-                                    <div class="offer">
-                                        <p><span>Offer</span></p>
-                                    </div>
-                                </a>
-                                <div class="mid-1">
-                                    <div class="women">
-                                        <h6><a href="single.html">Nuts</a>(250 g)</h6>
-                                    </div>
-                                    <div class="mid-2">
-                                        <p><label>$4.00</label><em class="item_price">$3.50</em></p>
-                                        <div class="block">
-                                            <div class="starbox small ghosting"> </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="add">
-                                        <button class="btn btn-danger my-cart-btn my-cart-b" data-id="8" data-name="Nuts" data-summary="summary 8" data-price="3.50" data-quantity="1" data-image="{% static 'template/images/of7.png'%}">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                         <div class="clearfix"></div>
                     </div>
                 </div>
