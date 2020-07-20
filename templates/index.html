@@ -277,7 +277,7 @@
 <div class="content-top ">
     <div class="container ">
         <div class="spec ">
-            <h3>Best Offers</h3>
+            <h3>Best Price Deals</h3>
             <div class="ser-t">
                 <b></b>
                 <span><i></i></span>
@@ -309,9 +309,9 @@
                                     <div class="women">
                                         <h6><a href="single.html">{{grc.product_name}}</a>({{grc.quantity}})</h6>
                                         {% if grc.brand %}
-                                            <p style="margin-top: 5px;color:gray;">{{grc.brand}}</p>
+                                        <p style="margin-top: 5px;color:gray;">{{grc.brand}}</p>
                                         {% else %}
-                                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                                        <p style="margin-top: 5px;color:gray;"> favshops</p>
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
@@ -349,9 +349,9 @@
                                     <div class="women">
                                         <h6><a href="single.html">{{snk.product_name}}</a>( {{snk.quantity}} )</h6>
                                         {% if grc.brand %}
-                                            <p style="margin-top: 5px;color:gray;">{{snk.brand}}</p>
+                                        <p style="margin-top: 5px;color:gray;">{{snk.brand}}</p>
                                         {% else %}
-                                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                                        <p style="margin-top: 5px;color:gray;"> favshops</p>
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
@@ -588,8 +588,8 @@
     </div>
 </div>
 
+<!--
 
-<!--content-->
 <div class="content-mid">
     <div class="container">
 
@@ -640,11 +640,12 @@
         </div>
         <div class="clearfix"></div>
     </div>
-</div>
+</div>-->
 <!--content-->
 
 
 <!--content-->
+<!--
 {% if special_offer %}
 <div class="product">
     <div class="container">
@@ -678,7 +679,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
-                            <!--<button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{obj.pk}}" data-name="{{obj.product_name}}" data-summary="{{obj.description}}" data-price="{{obj.discount_price}}" data-quantity="{{obj.quantity}}" data-image="{% static 'template/images/of16.png'%}">Add to Cart</button>-->
+                            
                             {% if user.is_authenticated %}
                             <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
                         </div>
@@ -690,7 +691,7 @@
         </div>
     </div>
 </div>
-{% endif %}
+{% endif %}-->
 
 
 <!-- smooth scrolling -->
