@@ -14,7 +14,7 @@ class Order(models.Model):
     quantity = models.CharField(max_length=20,null=True,blank=True)
     price = models.CharField(max_length=20,null=True,blank=True)
     order_date = models.DateTimeField(auto_now_add=True)
-    address = models.CharField(max_length=50,null=True,blank=True)
+    address = models.CharField(max_length=200,null=True,blank=True)
     payment_mode = models.CharField(max_length=30,null=True,blank=True)
     packed = models.BooleanField(default=False)
     delivered = models.BooleanField(default=False)
