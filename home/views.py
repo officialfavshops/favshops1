@@ -154,3 +154,6 @@ def big_sale(request):
     best_offer = Product.objects.filter(best_offer=True).order_by('-upload_time')
     return render(request,'big_sale.html',{'special_offer':special_offer,'best_offer':best_offer})
 
+def cooking_oil(request):
+    cooking_oil = Product.objects.filter(category='Cooking oil').order_by('-upload_time')
+    return render(request,'cooking_oil.html',{'cooking_oil':cooking_oil})
