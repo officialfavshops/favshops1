@@ -18,4 +18,5 @@ urlpatterns = [
     path('not_delivered',views.not_delivered,name='not_delivered'),
     path('order_packed/<int:pk>/',views.order_packed,name='order_packed'),
     path('big_sale',views.big_sale,name='big_sale'),
+    path('cooking_oil',views.cooking_oil,name='cooking_oil'),
 ]
