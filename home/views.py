@@ -20,8 +20,9 @@ def index(request):
     masala = Product.objects.filter(category='Masala').order_by('-upload_time')
     beauty_products = Product.objects.filter(category='Beauty_products').order_by('-upload_time')
     hair_oil = Product.objects.filter(category='Hair oil').order_by('-upload_time')
+    cold_drinks = Product.objects.filter(category='Drinks').order_by('-upload_time')
 
-    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil})
+    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks})
 
 def cart_page(request):
     mnumber = request.user.mobile_number
