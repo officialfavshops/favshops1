@@ -166,3 +166,12 @@ def beauty_products(request):
 def masala(request):
     masala = Product.objects.filter(category='Masala').order_by('-upload_time')
     return render(request,'masala.html',{'masala':masala})
+
+def grocery(request):
+    grocery = Product.objects.filter(category='Grocery').order_by('-upload_time')
+    return render(request,'grocery.html',{'grocery':grocery})
+
+def cold_drinks(request):
+    cold_drinks = Product.objects.filter(category='Drinks').order_by('-upload_time')
+    return render(request,'cold_drinks.html',{'cold_drinks':cold_drinks})
+
