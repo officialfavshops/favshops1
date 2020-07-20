@@ -513,12 +513,11 @@
 
 
 <!--content-->
-<!--
-{% if special_offer %}
+
 <div class="product">
     <div class="container">
         <div class="spec ">
-            <h3>Special Offers</h3>
+            <h3>Masala</h3>
             <div class="ser-t">
                 <b></b>
                 <span><i></i></span>
@@ -526,7 +525,7 @@
             </div>
         </div>
         <div class=" con-w3l">
-            {% for obj in special_offer %}
+            {% for obj in masala %}
             <div class="col-md-3 pro-1">
                 <div class="col-m">
                     <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
@@ -547,7 +546,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
-                            
+
                             {% if user.is_authenticated %}
                             <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
                         </div>
@@ -559,7 +558,238 @@
         </div>
     </div>
 </div>
-{% endif %}-->
+
+
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3>Beauty Products</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class=" con-w3l">
+            {% for obj in beauty_products %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                            {% if obj.brand %}
+                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            {% else %}
+                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            {% endif %}
+                        </div>
+                        <div class="mid-2">
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add add-2">
+
+                            {% if user.is_authenticated %}
+                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3>Hair Oil</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class=" con-w3l">
+            {% for obj in hair_oil %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                            {% if obj.brand %}
+                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            {% else %}
+                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            {% endif %}
+                        </div>
+                        <div class="mid-2">
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add add-2">
+
+                            {% if user.is_authenticated %}
+                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3>Cold Drinks</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class=" con-w3l">
+            {% for obj in cold_drinks %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                            {% if obj.brand %}
+                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            {% else %}
+                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            {% endif %}
+                        </div>
+                        <div class="mid-2">
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add add-2">
+
+                            {% if user.is_authenticated %}
+                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3>Grocery</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class=" con-w3l">
+            {% for obj in grocery %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                            {% if obj.brand %}
+                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            {% else %}
+                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            {% endif %}
+                        </div>
+                        <div class="mid-2">
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add add-2">
+
+                            {% if user.is_authenticated %}
+                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3>Snacks</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class=" con-w3l">
+            {% for obj in snacks %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                            {% if obj.brand %}
+                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            {% else %}
+                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            {% endif %}
+                        </div>
+                        <div class="mid-2">
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add add-2">
+
+                            {% if user.is_authenticated %}
+                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <!-- smooth scrolling -->
