@@ -45,7 +45,7 @@ def order_delivered(request):
         for ord in co_orders:
             item = ord.name + " | " + ord.quantity + " | " + ord.price
             confirm_order += item + " , "
-            order_margin_price += int(ord.margin_price)
+            order_margin_price += float(ord.margin_price)
             mnumber = ord.mobile_number
             address = ord.address
             order_time = ord.order_date
