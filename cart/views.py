@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from Products.models import Product
 from .models import Cart
 from address.forms import address_form
@@ -25,7 +25,8 @@ def add_to_cart(request,pk):
     #total_cart = len(request.user.cart)
     #print(total_cart)
     #print(request.user.cart)
-    return redirect('index')
+    #return redirect('index')
+    return HttpResponse('Cart added successfully')
 
 def delete_cart_item(request,pk):
     cart_product = Cart.objects.get(pk=pk)
