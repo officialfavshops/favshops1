@@ -149,3 +149,6 @@ def order_packed(request,pk):
     order.save()
     return redirect('delivery_boy_page')
 
+def big_sale(request):
+    return render(request,'big_sale.html')
+
