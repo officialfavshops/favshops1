@@ -150,6 +150,6 @@ def order_packed(request,pk):
     return redirect('delivery_boy_page')
 
 def big_sale(request):
-    big_sale = Order.objects.filter(special_offer = 'special_offer')
+    big_sale = Product.objects.filter(special_offer=True).order_by('-upload_time').filter(best_offer=True)
     return render(request,'big_sale.html',{'big_sale':big_sale})
 
