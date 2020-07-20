@@ -20,4 +20,5 @@ urlpatterns = [
     path('big_sale',views.big_sale,name='big_sale'),
     path('cooking_oil',views.cooking_oil,name='cooking_oil'),
     path('beauty_products',views.beauty_products,name='beauty_products'),
+    path('masala',views.masala,name='masala'),
 ]

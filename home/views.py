@@ -161,3 +161,7 @@ def cooking_oil(request):
 def beauty_products(request):
     beauty_products = Product.objects.filter(category='Beauty_products').order_by('-upload_time')
     return render(request,'beauty_products.html',{'beauty_products':beauty_products})
+
+def masala(request):
+    masala = Product.objects.filter(category='Masala').order_by('-upload_time')
+    return render(request,'masala.html',{'masala':masala})
