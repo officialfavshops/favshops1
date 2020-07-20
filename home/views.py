@@ -157,3 +157,7 @@ def big_sale(request):
 def cooking_oil(request):
     cooking_oil = Product.objects.filter(category='Cooking oil').order_by('-upload_time')
     return render(request,'cooking_oil.html',{'cooking_oil':cooking_oil})
+
+def beauty_products(request):
+    beauty_products = Product.objects.filter(category='Beauty_products').order_by('-upload_time')
+    return render(request,'beauty_products.html',{'beauty_products':beauty_products})
