@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class=" con-w3l agileinf">
-            {% for item in big_sale %}
+            {% for item in best_offer %}
             <div class="col-md-3 pro-1">
                 <div class="col-m">
                     <a href="{% url 'product_details' pk=item.pk %}" data-toggle="modal" data-target="#myModal1" class="offer-img">
@@ -53,7 +53,31 @@
                             <h6><a href="single.html">{{item.product_name}}</a>( {{item.quantity}} )</h6>
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{grc.mrp}}</label><em class="item_price"><span>&#8377;</span>{{grc.discount_price}}</em></p>
+                            <p style="color:black;"><label><span>&#8377;</span>{{item.mrp}}</label><em class="item_price"><span>&#8377;</span>{{item.discount_price}}</em></p>
+                            <!--<div class="block">
+                                <div class="starbox small ghosting"> </div>
+                            </div>-->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'add_to_cart' pk=item.pk %}"><button class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</button></a> {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %} {% for item in special_offer %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=item.pk %}" data-toggle="modal" data-target="#myModal1" class="offer-img">
+                        <img src="{{item.image.url}}" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="single.html">{{item.product_name}}</a>( {{item.quantity}} )</h6>
+                        </div>
+                        <div class="mid-2">
+                            <p style="color:black;"><label><span>&#8377;</span>{{item.mrp}}</label><em class="item_price"><span>&#8377;</span>{{item.discount_price}}</em></p>
                             <!--<div class="block">
                                 <div class="starbox small ghosting"> </div>
                             </div>-->
@@ -68,28 +92,7 @@
             </div>
             {% endfor %}
 
-            <div class="col-md-3 pro-1">
-                <div class="col-m">
-                    <a href="#" data-toggle="modal" data-target="#myModal12" class="offer-img">
-                        <img src="images/of59.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="mid-1">
-                        <div class="women">
-                            <h6><a href="single.html"> Cleaner</a>(1 pc)</h6>
-                        </div>
-                        <div class="mid-2">
-                            <p><label>$1.00</label><em class="item_price">$0.80</em></p>
-                            <div class="block">
-                                <div class="starbox small ghosting"> </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="add">
-                            <button class="btn btn-danger my-cart-btn my-cart-b" data-id="59" data-name="Cleaner" data-summary="summary 59" data-price="0.80" data-quantity="1" data-image="images/of59.png">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="clearfix"></div>
         </div>
     </div>
