@@ -23,4 +23,5 @@ urlpatterns = [
     path('masala',views.masala,name='masala'),
     path('grocery',views.grocery,name='grocery'),
     path('cold_drinks',views.cold_drinks,name='cold_drinks'),
+    path('snacks',views.snacks,name='snacks'),
 ]

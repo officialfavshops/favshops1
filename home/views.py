@@ -175,3 +175,6 @@ def cold_drinks(request):
     cold_drinks = Product.objects.filter(category='Drinks').order_by('-upload_time')
     return render(request,'cold_drinks.html',{'cold_drinks':cold_drinks})
 
+def snacks(request):
+    snacks = Product.objects.filter(category='Snacks').order_by('-upload_time')
+    return render(request,'snacks.html',{'snacks':snacks})

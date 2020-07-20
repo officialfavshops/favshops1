@@ -30,12 +30,12 @@
                                     <div class="col-sm-3">
                                         <ul class="multi-column-dropdown">
 
-                                            <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Grocery</a></li>
-                                            <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Masala</a></li>
+                                            <li><a href="{% url 'grocery' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Grocery</a></li>
+                                            <li><a href="{% url 'masala' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Masala</a></li>
                                             <li>
-                                                <a href="kitchen.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Cooking Oil</a>
+                                                <a href="{% url 'cooking_oil' %}"> <i class="fa fa-angle-right" aria-hidden="true"></i>Cooking Oil</a>
                                             </li>
-                                            <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cold Drinks</a></li>
+                                            <li><a href="{% url 'cold_drinks' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Cold Drinks</a></li>
 
                                         </ul>
 
@@ -43,8 +43,8 @@
                                     <div class="col-sm-3">
 
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Breakfast </a></li>
-                                            <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Snacks</a></li>
+                                            <!--<li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Breakfast </a></li>-->
+                                            <li><a href="{% url 'snacks' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Snacks</a></li>
                                             <!--<li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Spices</a></li>-->
                                             <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Biscuit &amp; Cookie</a></li>
                                             <!--<li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Sweets</a></li>-->
