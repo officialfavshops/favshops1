@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponse
+from django.http import JsonResponse
 from Products.models import Product
 from .models import Cart
 from address.forms import address_form
@@ -28,21 +29,20 @@ def add_to_cart(request,pk):
     return redirect('index')
     
 def add_to_cart_ajax(request):
-    if request.method == 'GET':
-        pk = request.GET['pid']
-        product = Product.objects.get(pk=pk)
-        mobile_number = request.user.mobile_number
-        cart = Cart.objects.create(mobile_number=mobile_number,product=product)
-        cart.save()
-        new_cart = Cart.objects.create(mobile_number=mobile_number,product=product)
-        print('Cart Added')
+    
+    pk = request.GET['pid']
+    product = Product.objects.get(pk=pk)
+    mobile_number = request.user.mobile_number
+    cart = Cart.objects.create(mobile_number=mobile_number,product=product)
+    cart.save()
+    new_cart = Cart.objects.create(mobile_number=mobile_number,product=product)
+    print('Cart Added')
 
-        data={
+    data={
             'added':(new_cart > cart)
         }
-        return HttpResponse(data)
-    else:
-        return HttpResponse("Not Added")
+    return JsonResponse(data)
+    
 
 def delete_cart_item(request,pk):
     cart_product = Cart.objects.get(pk=pk)
