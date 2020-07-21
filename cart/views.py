@@ -27,6 +27,16 @@ def add_to_cart(request,pk):
     #print(request.user.cart)
     return redirect('index')
     
+def add_to_cart_ajax(request):
+    if request.method == 'GET':
+        pk = request.GET['pid']
+        product = Product.objects.get(pk=pk)
+        mobile_number = request.user.mobile_number
+        cart = Cart.objects.create(mobile_number=mobile_number,product=product)
+        cart.save()
+        return HttpResponse("Successfully Added to Cart")
+    else:
+        return HttpResponse("Not Added")
 
 def delete_cart_item(request,pk):
     cart_product = Cart.objects.get(pk=pk)

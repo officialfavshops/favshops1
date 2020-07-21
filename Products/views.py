@@ -8,7 +8,7 @@ import math
 # Create your views here.
 
 def add_products(request):
-    
+
     if request.method == 'POST':
         form = Product_form(request.POST or None,request.FILES or None)
         if form.is_valid():
@@ -67,4 +67,6 @@ def delete_product(request,pk):
     product = Product.objects.get(pk=pk)
     product.delete()
     return redirect('all_products')
+
+
 
