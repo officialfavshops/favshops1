@@ -29,7 +29,7 @@
                     <p><strong>Your Quantity</strong> : {{obj.customer_quantity}}</p>
 
                     <p style="margin-top: 5px;;"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span> Remove </a> | <label for="quantity">Change Qty : </label>
-                        <select name="quantity" class="customer_quantity" id="quantity" data-pk="{{obj.pk}}">
+                        <select name="quantity" class="customer_quantity" id="quantity{{obj.pk}}" data-pk="{{obj.pk}}">
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -73,7 +73,8 @@
         var val;
         var pk;
         pk = $(this).attr("data-pk");
-        val = $(this).selectedOptions[0].value;
+        id = "#quantity" + pk
+        val = $(id).selectedOptions[0].value;
         alert("PK and Value : " + pk, val)
     });
 </script>
