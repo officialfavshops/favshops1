@@ -794,7 +794,9 @@
     $(".btn-ajax").click(function() {
         var pid;
         pid = $(this).attr("data-pid");
+        console.log(pid);
         $.ajax({
+
             type: "GET",
             url: "add_to_cart_ajax",
             data: {
