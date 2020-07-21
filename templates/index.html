@@ -795,20 +795,7 @@
         var pid;
         pid = $(this).attr("data-pid");
         console.log('Id', pid);
-        $.ajax({
-            url: '{% url "add_to_cart_ajax" %}',
-            data: {
-                'product_id': pid
-            },
-            dataType: 'json',
-
-            success: function(data) {
-                if (data.added) {
-                    alert("Successfylly added to cart ");
-                }
-
-            }
-        })
+        alert('Product Id : ', pid);
 
     });
 </script>
