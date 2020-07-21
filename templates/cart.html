@@ -30,7 +30,7 @@
 
                     <p style="margin-top: 5px;;"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span> Remove </a> | <label for="quantity">Change Qty : </label>
                         <select name="quantity" class="customer_quantity" id="quantity{{obj.pk}}" data-pk="{{obj.pk}}">
-                          <option value="1">1</option>
+                         <option value="{{obj.customer_quantity}}">{{obj.customer_quantity}}</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
                           <option value="4">4</option>
