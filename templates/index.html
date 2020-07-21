@@ -795,8 +795,7 @@
         var pid;
         pid = $(this).attr("data-pid");
         console.log('Id', pid);
-        pidd = 10
-        alert(pid + pidd);
+
         $.ajax({
             url: '{% url "add_to_cart_ajax" %}',
             data: {
