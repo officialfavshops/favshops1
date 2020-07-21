@@ -167,7 +167,7 @@
             </nav>
             {% if user.is_authenticated %}
             <div class="cart">
-                <a href="{% url 'cart_page' %}"><span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify "><b style="font-size: 10px;">{{cartlen}}</b></span></span></a>
+                <a href="{% url 'cart_page' %}"><span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify "><b style="font-size: 10px;" id="cart_len">{{cartlen}}</b></span></span></a>
             </div>
             {% endif %}
             <div class="clearfix"></div>
