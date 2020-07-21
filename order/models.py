@@ -12,6 +12,7 @@ class Order(models.Model):
     name = models.CharField(max_length=30,null=True,blank=True)
     brand = models.CharField(max_length=40,blank=True,null=True)
     quantity = models.CharField(max_length=20,null=True,blank=True)
+    customer_quantity = models.CharField(max_length=30,null=False,blank=False,default=1)
     price = models.CharField(max_length=20,null=True,blank=True)
     order_date = models.DateTimeField(auto_now_add=True)
     address = models.CharField(max_length=200,null=True,blank=True)
