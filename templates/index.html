@@ -789,31 +789,6 @@
 </div>
 
 
-{% block javascript %}
-<script type="text/javascript">
-    $(".btn-ajax").click(function() {
-        var pid;
-        pid = $(this).attr("data-pid");
-        console.log('Id', pid);
-
-        $.ajax({
-            url: '{% url "add_to_cart_ajax" %}',
-            data: {
-                'id': pid
-            },
-            dataType: 'json',
-
-            success: function(data) {
-                if (data.added) {
-                    alert("Successfylly added to cart ");
-                }
-
-            }
-        })
-
-    });
-</script>
-{% endblock %}
 
 
 <!-- smooth scrolling -->
