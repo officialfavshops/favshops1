@@ -8,5 +8,5 @@ urlpatterns = [
     path('cart_checkout',views.cart_checkout,name='cart_checkout'),
     path('handlerequest/',views.handlerequest,name='HandleRequest'),
     path('payment_mode',views.payment_mode,name='payment_mode'),
-    path(r'^cart/add_to_cart_ajax/$',views.add_to_cart_ajax,name='add_to_cart_ajax'),
+    path('add_to_cart_ajax',views.add_to_cart_ajax,name='add_to_cart_ajax'),
 ]
