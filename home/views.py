@@ -114,7 +114,7 @@ def not_delivered(request):
         for j in not_delivered:
             if j.order_id == id:
                 list.append(j)
-                total_price += float(j.price)
+                total_price += float(j.price) * float(j.customer_quantity)
 
         if total_price <= 100:
             delivery_charge = 10
