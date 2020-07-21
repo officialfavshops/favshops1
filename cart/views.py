@@ -32,15 +32,15 @@ def add_to_cart_ajax(request):
     
     pk = request.GET.get('id',None)
     product = Product.objects.get(pk=pk)
-    total_cart = Cart.objects.filter(mobile_number=mobile_number)
     mobile_number = request.user.mobile_number
+    total_cart = Cart.objects.filter(mobile_number=mobile_number)
     cart = Cart.objects.create(mobile_number=mobile_number,product=product)
     cart.save()
     new_total_cart = Cart.objects.filter(mobile_number=mobile_number)
     print('Cart Added')
 
     data={
-            'added': (len(new_total_cart) > len(total_cart))
+            'added': ['True' if len(new_total_cart) > len(total_cart) else 'False']
         }
     return JsonResponse(data)
     
