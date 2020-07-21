@@ -34,6 +34,7 @@ def add_to_cart_ajax(request):
         mobile_number = request.user.mobile_number
         cart = Cart.objects.create(mobile_number=mobile_number,product=product)
         cart.save()
+        
         return HttpResponse("Successfully Added to Cart")
     else:
         return HttpResponse("Not Added")
