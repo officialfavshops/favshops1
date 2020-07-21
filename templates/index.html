@@ -796,7 +796,7 @@
         pid = $(this).attr("data-pid");
         console.log('Id', pid);
         $.ajax({
-            url: 'add_to_cart_ajax',
+            url: 'cart/add_to_cart_ajax',
             data: {
                 'product_id': pid
             },
