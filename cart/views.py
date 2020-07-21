@@ -30,7 +30,7 @@ def add_to_cart(request,pk):
     
 def add_to_cart_ajax(request):
     
-    pk = request.GET['pid']
+    pk = request.GET.get['id']
     product = Product.objects.get(pk=pk)
     mobile_number = request.user.mobile_number
     cart = Cart.objects.create(mobile_number=mobile_number,product=product)

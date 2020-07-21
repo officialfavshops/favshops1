@@ -797,6 +797,20 @@
         console.log('Id', pid);
         pidd = 10
         alert(pid + pidd);
+        $.ajax({
+            url: '{% url "add_to_cart_ajax" %}',
+            data: {
+                'id': pid
+            },
+            dataType: 'json',
+
+            success: function(data) {
+                if (data.added) {
+                    alert("Successfylly added to cart ");
+                }
+
+            }
+        })
 
     });
 </script>
