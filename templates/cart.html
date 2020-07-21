@@ -74,7 +74,7 @@
         var pk;
         pk = $(this).attr("data-pk");
         id = "#quantity" + pk
-        val = $(id).selectedOptions[0].value;
+        val = $(id).val()
         alert("PK and Value : " + pk, val)
     });
 </script>
