@@ -777,7 +777,7 @@
                         <div class="add add-2">
 
                             {% if user.is_authenticated %}
-                            <a class="btn btn-danger my-cart-btn my-cart-b" data-pid="{{obj.pk}}" href="#">Add to Cart</a> {% endif %}
+                            <a class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" href="#">Add to Cart</a> {% endif %}
                         </div>
                     </div>
                 </div>
@@ -791,7 +791,7 @@
 
 
 <script type="text/javascript">
-    $(".my-cart-b").click(function() {
+    $(".btn-ajax").click(function() {
         var pid;
         pid = $(this).attr("data-pid");
         $.ajax({
