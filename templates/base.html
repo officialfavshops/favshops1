@@ -341,6 +341,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 
+    <script type="text/javascript">
+        function tempAlert(msg, duration) {
+            var el = document.createElement("div");
+            el.setAttribute("style", "position:absolute;top:40%;left:20%;background-color:white;");
+            el.innerHTML = msg;
+            setTimeout(function() {
+                el.parentNode.removeChild(el);
+            }, duration);
+            document.body.appendChild(el);
+        }
+    </script>
+
     {% block javascript %}
     <script type="text/javascript">
         $(".btn-ajax").click(function() {
@@ -358,8 +370,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 success: function(data) {
                     if (data.added) {
-                        alert(data.pname + " Successfylly added to your cart ");
-                        document.getElementById("cart_len").value = data.cart_len;
+                        msg = data.pname + " Added Successfylly to your cart.";
+                        tempAlert(msg, 2000);
+                        document.getElementById("cart_len").innerHTML = data.cart_len;
                     }
 
                 }
