@@ -54,21 +54,15 @@ def delete_cart_item(request,pk):
     return redirect('cart_page')
 
 def change_quantity(request):
-    print('we are in change quantity')
     pk = request.GET.get('pk',None)
-    quantity = request.GET.get('quantity',None)
-    print(pk,quantity)
-    cart_product = Cart.objects.get(pk=pk)
-    product_qnt = cart_product.product.quantity.split(' ')
-    product_qnt[0] = str(quantity)
-    str_quantity = ' '.join(product_qnt)
-    cart_product.product.quantity = str_quantity
-    print(cart_product.product.quantity)
-    cart_product.save()
-    print(cart_product.product.quantity)
-    new = Cart.objects.get(pk=pk)
-    print(new.product.quantity)
-    return redirect('cart_page')
+    val = request.GET.get('val',None)
+    cart_item = Cart.objects.get(pk=pk)
+    cart_item.customer_quantity = val
+    cart_item.save()
+    data = {
+        'updated':True
+    }
+    return JsonResponse(data)
 
 def cart_checkout(request):
     mnumber = request.user.mobile_number
