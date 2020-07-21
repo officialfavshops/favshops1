@@ -324,7 +324,7 @@
                                     </div>
                                     <div class="add ">
                                         {% if user.is_authenticated %}
-                                        <a href="{% url 'add_to_cart' pk=grc.pk %}"><button class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</button></a> {% endif %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{grc.pk}}">Add to Cart</button> {% endif %}
                                     </div>
 
                                 </div>
@@ -364,7 +364,7 @@
                                     </div>
                                     <div class="add">
                                         {% if user.is_authenticated %}
-                                        <a href="{% url 'add_to_cart' pk=snk.pk %}"><button class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</button></a> {% endif %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}">Add to Cart</button> {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -402,7 +402,7 @@
                                     </div>
                                     <div class="add">
                                         {% if user.is_authenticated %}
-                                        <a href="{% url 'add_to_cart' pk=snk.pk %}"><button class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</button></a> {% endif %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}">Add to Cart</button> {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -440,7 +440,7 @@
                                     </div>
                                     <div class="add">
                                         {% if user.is_authenticated %}
-                                        <a href="{% url 'add_to_cart' pk=snk.pk %}"><button class="btn btn-danger my-cart-btn my-cart-b" >Add to Cart</button></a> {% endif %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}">Add to Cart</button> {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -548,7 +548,7 @@
                         <div class="add add-2">
 
                             {% if user.is_authenticated %}
-                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
                         </div>
                     </div>
                 </div>
@@ -594,7 +594,7 @@
                         <div class="add add-2">
 
                             {% if user.is_authenticated %}
-                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
                         </div>
                     </div>
                 </div>
@@ -639,7 +639,7 @@
                         <div class="add add-2">
 
                             {% if user.is_authenticated %}
-                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
                         </div>
                     </div>
                 </div>
@@ -685,7 +685,7 @@
                         <div class="add add-2">
 
                             {% if user.is_authenticated %}
-                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
                         </div>
                     </div>
                 </div>
@@ -731,7 +731,7 @@
                         <div class="add add-2">
 
                             {% if user.is_authenticated %}
-                            <a class="btn btn-danger my-cart-btn my-cart-b" href="{% url 'add_to_cart' pk=obj.pk %}">Add to Cart</a> {% endif %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
                         </div>
                     </div>
                 </div>
