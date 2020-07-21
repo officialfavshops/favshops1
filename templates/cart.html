@@ -23,9 +23,11 @@
                     {% if obj.product.brand %}
                     <p><strong>Brand</strong> : {{obj.product.brand}}</p>
                     {% endif %}
-                    <p><strong>Your Price</strong> : {{obj.product.discount_price}}</p>
-                    <p><strong>Actual Price</strong> : <strike>{{obj.product.mrp}}</strike></p>
                     <p><strong>Quantity</strong> : {{obj.product.quantity}}</p>
+                    <p><strong>Actual Price</strong> : <strike>{{obj.product.mrp}}</strike></p>
+                    <p><strong>Your Price</strong> : {{obj.product.discount_price}}</p>
+
+
                     <p style="margin-top: 5px;;"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span> Remove </a> | <label for="quantity">Qty : </label>
                         <select name="quantity" id="quantity" data-pk="{{obj.pk}}">
                           <option value="1">1</option>
@@ -33,6 +35,11 @@
                           <option value="3">3</option>
                           <option value="4">4</option>
                           <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
                         </select></p>
                 </div>
                 <!--<div class="col-6 col-sm-4"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span></a></div>-->
@@ -62,17 +69,7 @@
 {% block javascript %}
 <script type="text/javascript">
     $('#quantity').change(function() {
-        console.log("Hey quantity");
-        var quantity = $(this).val();
-        $.ajax({
-            url: '{% url "change_quantity" %}',
-            data: {
-                'quantity': quantity,
-                'pk': $('#quantity').attr('data-pk')
-            },
-            dataType: "json"
 
-        })
     });
 </script>
 {% endblock %} {% endblock %}

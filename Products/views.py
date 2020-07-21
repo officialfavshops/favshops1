@@ -60,13 +60,15 @@ def edit_product(request,pk):
            return redirect('all_products')
     else:
         product_edit_form = Product_form(instance=product)
-   
+
     return render(request,'edit_product.html',{'product_edit_form':product_edit_form})
 
 def delete_product(request,pk):
     product = Product.objects.get(pk=pk)
     product.delete()
     return redirect('all_products')
+
+
 
 
 

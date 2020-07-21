@@ -80,7 +80,7 @@ def cart_checkout(request):
     address = Address.objects.filter(mobile_number = mnumber).first()
     total_product = len(cart)
     for data in cart:
-        total += float(data.product.discount_price)
+        total += float(data.product.discount_price) * float(data.customer_quantity)
 
     if total <= 100:
         delivery_charge = 10
@@ -105,7 +105,7 @@ def cart_checkout(request):
             form = address_form(request.POST or None)
 
         for data in cart:
-            total += float(data.product.discount_price)
+            total += float(data.product.discount_price) * float(data.customer_quantity)
 
         if total <= 100:
             delivery_charge = 10
@@ -213,7 +213,7 @@ def create_order(request,response_dict):
     address = Address.objects.filter(mobile_number = mnumber).first()
     total_product = len(cart)
     for data in cart:
-        total += float(data.product.discount_price)
+        total += float(data.product.discount_price) * float(data.customer_quantity)
 
     id = Order.get_order_id(request)
     order = Order(order_id = id,mobile_number=request.user.mobile_number,cart=cart,total_price = total,address=address)
@@ -245,7 +245,7 @@ def create_order_cod(request):
     total_address = full_name + " , " + address.at + " , " + address.landmark + " , " + address.panchayat + " , " + address.dist + " , " + address.pin + " , " + al_number
     total_product = len(cart)
     for data in cart:
-        total += float(data.product.discount_price)
+        total += float(data.product.discount_price) * float(data.customer_quantity)
     #id = Orderid.generate_id()
 
     if total <= 100:
