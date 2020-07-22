@@ -309,7 +309,7 @@
                                     </div>
                                     <div class="mid-2">
                                         {% if obj.discount_percentage != "0" %}
-                                        <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                                        <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
                                         {% else %}
                                         <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
@@ -348,8 +348,12 @@
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
-                                        <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                                        {% if obj.discount_percentage != "0" %}
+                                        <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                                        {% else %}
+                                        <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                                        {% endif %}
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="add add-2">
@@ -387,10 +391,12 @@
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
-                                        <p style="color:black;"><label><span>&#8377;</span>{{snk.mrp}}</label><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{snk.discount_percentage}} %</span>                                            </p>
-                                        <!--<div class="block">
-                                            <div class="starbox small ghosting"> </div>
-                                        </div>-->
+                                        {% if obj.discount_percentage != "0" %}
+                                        <p style="color:black;"><label><span>&#8377;</span>{{snk.mrp}}</label><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{snk.discount_percentage}} % OFF</span></p>
+
+                                        {% else %}
+                                        <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em></p>
+                                        {% endif %}
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="add">
@@ -426,10 +432,12 @@
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
-                                        <p style="color:black;"><label><span>&#8377;</span>{{snk.mrp}}</label><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{snk.discount_percentage}} %</span>                                            </p>
-                                        <!--<div class="block">
-                                            <div class="starbox small ghosting"> </div>
-                                        </div>-->
+                                        {% if obj.discount_percentage != "0" %}
+                                        <p style="color:black;"><label><span>&#8377;</span>{{snk.mrp}}</label><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{snk.discount_percentage}} % OFF</span></p>
+
+                                        {% else %}
+                                        <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em></p>
+                                        {% endif %}
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="add">
@@ -536,8 +544,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span> </p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -583,8 +595,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -629,8 +645,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -676,8 +696,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -723,8 +747,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -770,8 +798,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -817,8 +849,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -865,8 +901,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -913,8 +953,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
@@ -960,8 +1004,12 @@
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
 
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
                             <div class="clearfix"></div>
                         </div>
                         <div class="add add-2">
