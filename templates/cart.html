@@ -26,9 +26,9 @@
                     <p><strong>Quantity</strong> : {{obj.product.quantity}}</p>
                     <p><strong>Actual Price</strong> : <strike>{{obj.product.mrp}}</strike></p>
                     <p><strong>Your Price</strong> : {{obj.product.discount_price}}</p>
-                    <p><strong>Your Quantity</strong> : <span id="c_qty{{obj.pk}}">{{obj.customer_quantity}}</span></p>
+                    <p>
 
-                    <p style="margin-top: 5px;;"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span> Remove </a> | <label for="quantity">Change Qty : </label>
+                        | <label for="quantity"><strong>Your Qty : </strong></label>
                         <select name="quantity" class="customer_quantity" id="quantity{{obj.pk}}" data-pk="{{obj.pk}}">
                          <option value="{{obj.customer_quantity}}">{{obj.customer_quantity}}</option>
                          <option value="1">1</option>
@@ -42,6 +42,7 @@
                           <option value="9">9</option>
                           <option value="10">10</option>
                         </select></p>
+                    <p style="margin-top: 5px;;"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span> Remove </a></p>
                 </div>
                 <!--<div class="col-6 col-sm-4"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span></a></div>-->
 

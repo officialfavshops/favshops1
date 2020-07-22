@@ -9487,7 +9487,6 @@
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/settings.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/urls.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
