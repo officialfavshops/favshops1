@@ -187,16 +187,16 @@ def snacks(request):
 
 def soap(request):
     soap = Product.objects.filter(category='Soap').order_by('-upload_time')
-    return render(request,'snacks.html',{'soap':soap})
+    return render(request,'soap.html',{'soap':soap})
 
 def biscuts(request):
     biscuts = Product.objects.filter(category='Biscuts').order_by('-upload_time')
-    return render(request,'snacks.html',{'biscuts':biscuts})
+    return render(request,'biscuts.html',{'biscuts':biscuts})
 
 def tooth_paste(request):
     tooth_paste = Product.objects.filter(category='Tooth paste').order_by('-upload_time')
-    return render(request,'snacks.html',{'tooth_paste':tooth_paste})
+    return render(request,'tooth_paste.html',{'tooth_paste':tooth_paste})
 
 def tea(request):
     tea = Product.objects.filter(category='Tea').order_by('-upload_time')
-    return render(request,'snacks.html',{'tea':tea})
+    return render(request,'tea.html',{'tea':tea})
