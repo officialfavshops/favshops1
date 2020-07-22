@@ -184,3 +184,19 @@ def cold_drinks(request):
 def snacks(request):
     snacks = Product.objects.filter(category='Snacks').order_by('-upload_time')
     return render(request,'snacks.html',{'snacks':snacks})
+
+def soap(request):
+    soap = Product.objects.filter(category='Soap').order_by('-upload_time')
+    return render(request,'snacks.html',{'soap':soap})
+
+def biscuts(request):
+    biscuts = Product.objects.filter(category='Biscuts').order_by('-upload_time')
+    return render(request,'snacks.html',{'biscuts':biscuts})
+
+def tooth_paste(request):
+    tooth_paste = Product.objects.filter(category='Tooth paste').order_by('-upload_time')
+    return render(request,'snacks.html',{'tooth_paste':tooth_paste})
+
+def tea(request):
+    tea = Product.objects.filter(category='Tea').order_by('-upload_time')
+    return render(request,'snacks.html',{'tea':tea})
