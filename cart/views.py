@@ -59,8 +59,14 @@ def change_quantity(request):
     cart_item = Cart.objects.get(pk=pk)
     cart_item.customer_quantity = val
     cart_item.save()
+    mnumber = request.user.mobile_number
+    total = 0.0
+    cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
+    for data in cart:
+        total += float(data.product.discount_price) * float(data.customer_quantity)
     data = {
-        'updated':True
+        'updated':True,
+        'total':total
     }
     return JsonResponse(data)
 

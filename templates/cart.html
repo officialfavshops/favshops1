@@ -52,7 +52,7 @@
                 <a href=""><button class="btn btn-primary">Total Price</button></a>
             </div>-->
             <div class="forg" style="align-items: center;margin-top:3px;">
-                <h4 class="forg-left" style="margin-bottom:20px;"> Total : {{total}}</h4>
+                <h4 class="forg-left" style="margin-bottom:20px;" id="total"> Total : {{total}}</h4>
                 <div class="clearfix"></div>
             </div>
             {% else %}
@@ -85,7 +85,8 @@
             dataType: 'json',
             success: function(data) {
                 if (data.updated) {
-                    location.reload();
+                    document.getElementById('total').innerHTML = data.total;
+                    document.getElementById(id).selectedIndex = val;
                 }
             }
         })
