@@ -75,8 +75,8 @@
         var pk;
         pk = $(this).attr("data-pk");
         id = "#quantity" + pk
+        cq_id = "#cq" + pk
         val = $(id).val()
-        cq_id = "cq" + pk
         console.log(cq_id)
         $.ajax({
             url: '{% url "change_quantity" %}',
