@@ -8,7 +8,7 @@
         <thead>
             <tr class="table-success">
                 <th style="font-size: 15px;font-weight:bold;">Product Image</th>
-                <th>Product Details</th>
+                <th style="font-size: 15px;font-weight:bold;">Product Details</th>
 
             </tr>
         </thead>
@@ -66,6 +66,37 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+    });
+</script>
+<script type="text/javascript">
+    $(".btn-ajax").click(function() {
+        var pid;
+
+        pid = $(this).attr("data-pid");
+        console.log('Id', pid);
+
+        $.ajax({
+            url: '{% url "add_to_cart_ajax" %}',
+            data: {
+                'id': pid
+            },
+            dataType: 'json',
+
+            success: function(data) {
+                if (data.added) {
+                    msg = "Successfylly Added to your cart.";
+                    var msgid = 'msg' + pid
+                    document.getElementById(msgid).innerHTML = msg;
+
+                    setTimeout(function() {
+                        document.getElementById(msgid).innerHTML = '';
+                    }, 3000);
+                    document.getElementById("cart_len").innerHTML = data.cart_len;
+                }
+
+            }
+        })
+
     });
 </script>
 {% endblock %} {% endblock %}
