@@ -213,6 +213,11 @@ def hair_oil(request):
     hair_oil = Product.objects.filter(category='Hair oil').order_by('-upload_time')
     return render(request,'hair_oil.html',{'hair_oil':hair_oil})
 
+def finail(request):
+    finail = Product.objects.filter(category='Finail').order_by('-upload_time')
+    return render(request,'finail.html',{'finail':finail})
+
+
 def customers(request):
     user = User.objects.all().order_by('-date_of_join')
     total = len(user)
@@ -221,3 +226,4 @@ def customers(request):
 def search(request):
     products = Product.objects.all().order_by('-upload_time')
     return render(request,'search.html',{'products':products})
+

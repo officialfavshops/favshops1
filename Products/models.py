@@ -21,6 +21,8 @@ class Product(models.Model):
         ('Finail','Finail'),
         ('Biscuts','Biscuts'),
         ('Tea','Tea'),
+        ('Detergent','Detergent'),
+        ('Sanitary pad','Sanitary pad'),
         ('Others','Others'),
     )
     boolean = (
