@@ -308,8 +308,11 @@
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
+                                        {% if obj.mrp == obj.discount_price %}
+                                        <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label></p>
+                                        {% else %}
                                         <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
-
+                                        {% endif %}
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="add add-2">

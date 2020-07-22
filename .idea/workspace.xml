@@ -9487,6 +9487,7 @@
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/settings.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/urls.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/checkout_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/checkout_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/payment_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment_page.html" afterDir="false" />
     </list>
