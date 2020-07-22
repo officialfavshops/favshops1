@@ -15,12 +15,23 @@
         <tbody id="myTable">
             {% for obj in products %}
             <tr>
-                <td><img src="{{obj.image.url}}" height="200" width="200" alt=""></td>
                 <td>
-                    <h6>{{obj.product_name}}</h6>
-                    <h6>{{obj.brand}}</h6>
-                    <h6>{{obj.actual_price}}</h6>
-                    <h6>{{obj.discount_price}}</h6>
+                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                    </a>
+                </td>
+                <td>
+                    <h4><a href="{% url 'product_details' pk=obj.pk %}"> {{obj.product_name}} </a>( {{obj.quantity}})</h4>
+                    {% if obj.brand %}
+                    <h4>{{obj.brand}}</h4>
+                    {% else %}
+                    <h4>favshops</h4>
+                    <h4>
+                        <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                    </h4>
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
+
                 </td>
             </tr>
 
