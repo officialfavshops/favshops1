@@ -26,7 +26,7 @@ def index(request):
     soap = Product.objects.filter(category='Soap').order_by('-upload_time')
     tooth_paste = Product.objects.filter(category='Tooth paste').order_by('-upload_time')
 
-    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks,'tea':tea,'biscuts':biscuts,'tooth_paste':tooth_paste})
+    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks,'tea':tea,'biscuts':biscuts,'tooth_paste':tooth_paste,'soap':soap})
 
 def cart_page(request):
     mnumber = request.user.mobile_number
