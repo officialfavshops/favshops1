@@ -266,7 +266,12 @@ def create_order_cod(request):
     payment_mode = 'COD'
     status = 'Shipping'
     for item in cart:
-        order = Order(image=item.product.image,order_id=id,payment_mode=payment_mode,mobile_number = mnumber,name=item.product.product_name,quantity = item.product.quantity,price=item.product.discount_price,address=total_address,status=status,margin_price=item.product.margin_price,customer_quantity=item.customer_quantity)
+        brand = ''
+        if item.product.brand:
+            brand = item.product.brand
+        else:
+            brand = 'favshops'
+        order = Order(image=item.product.image,order_id=id,payment_mode=payment_mode,mobile_number = mnumber,name=item.product.product_name,brand=brand,quantity = item.product.quantity,price=item.product.discount_price,address=total_address,status=status,margin_price=item.product.margin_price,customer_quantity=item.customer_quantity)
         order.save()
 
     for item in cart:
