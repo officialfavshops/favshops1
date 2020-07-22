@@ -216,5 +216,5 @@ def customers(request):
     return render(request,'customers.html',{'user':user,'total':total})
 
 def search(request):
-    user = User.objects.all().order_by('-date_of_join')
-    return render(request,'search.html',{'user':user})
+    products = Product.objects.all().order_by('-upload_time')
+    return render(request,'search.html',{'products':products})
