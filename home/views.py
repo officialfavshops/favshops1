@@ -21,8 +21,12 @@ def index(request):
     beauty_products = Product.objects.filter(category='Beauty_products').order_by('-upload_time')
     hair_oil = Product.objects.filter(category='Hair oil').order_by('-upload_time')
     cold_drinks = Product.objects.filter(category='Drinks').order_by('-upload_time')
+    tea = Product.objects.filter(category='Tea').order_by('-upload_time')
+    biscuts = Product.objects.filter(category='Biscuts').order_by('-upload_time')
+    soap = Product.objects.filter(category='Soap').order_by('-upload_time')
+    tooth_paste = Product.objects.filter(category='Tooth paste').order_by('-upload_time')
 
-    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks})
+    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks,'tea':tea,'biscuts':biscuts,'tooth_paste':tooth_paste})
 
 def cart_page(request):
     mnumber = request.user.mobile_number

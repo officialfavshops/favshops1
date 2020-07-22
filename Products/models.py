@@ -19,6 +19,8 @@ class Product(models.Model):
         ('Hair oil','Hair oil'),
         ('Yeepi noodles','Yeepi noodles'),
         ('Finail','Finail'),
+        ('Biscuts','Biscuts'),
+        ('Tea','Tea'),
         ('Others','Others'),
     )
     boolean = (

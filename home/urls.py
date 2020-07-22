@@ -24,4 +24,8 @@ urlpatterns = [
     path('grocery',views.grocery,name='grocery'),
     path('cold_drinks',views.cold_drinks,name='cold_drinks'),
     path('snacks',views.snacks,name='snacks'),
+    path('tea',views.tea,name='tea'),
+    path('biscuts',views.biscuts,name='biscuts'),
+    path('soap',views.soap,name='soap'),
+    path('tooth_paste',views.tooth_paste,name='tooth_paste'),
 ]
