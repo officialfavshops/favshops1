@@ -27,9 +27,9 @@ def add_to_cart(request,pk):
     #print(total_cart)
     #print(request.user.cart)
     return redirect('index')
-    
+
 def add_to_cart_ajax(request):
-    
+
     pk = request.GET.get('id',None)
     product = Product.objects.get(pk=pk)
     mobile_number = request.user.mobile_number
@@ -46,7 +46,7 @@ def add_to_cart_ajax(request):
             'pname':pname
         }
     return JsonResponse(data)
-    
+
 
 def delete_cart_item(request,pk):
     cart_product = Cart.objects.get(pk=pk)
@@ -76,11 +76,17 @@ def cart_checkout(request):
     lname = request.user.last_name
     total = 0
     delivery_charge = 0
+    total_mrp_price = 0.0
     cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
     address = Address.objects.filter(mobile_number = mnumber).first()
     total_product = len(cart)
     for data in cart:
         total += float(data.product.discount_price) * float(data.customer_quantity)
+        total_mrp_price += float(data.product.mrp) * float(data.customer_quantity)
+
+    you_save = total_mrp_price - total
+    you_save_percentage = round((you_save / total_mrp_price) * 100)
+
 
     if total <= 100:
         delivery_charge = 10
@@ -98,6 +104,7 @@ def cart_checkout(request):
 
     if request.method == 'POST':
         total = 0.0
+        total_mrp_price = 0.0
         number = request.user.mobile_number
         if address:
             form = address_form(request.POST or None,instance=address)
@@ -106,6 +113,10 @@ def cart_checkout(request):
 
         for data in cart:
             total += float(data.product.discount_price) * float(data.customer_quantity)
+            total_mrp_price += float(data.product.mrp) * float(data.customer_quantity)
+
+        you_save = total_mrp_price - total
+        you_save_percentage = round((you_save / total_mrp_price) * 100)
 
         if total <= 100:
             delivery_charge = 10
@@ -139,10 +150,10 @@ def cart_checkout(request):
                 al_number = ","
 
             total_address = full_name + " , " + at + " , " + landmark + " , " + panchayat + " , " + dist + " , " + pin + " , " + state + " , " + al_number
-            return render(request,'payment_page.html',{'total':total,'delivery_charge':delivery_charge,'final_price':final_price,'address':total_address,'total_product':total_product})
+            return render(request,'payment_page.html',{'total':total,'delivery_charge':delivery_charge,'final_price':final_price,'address':total_address,'total_product':total_product,'you_save':you_save,'you_save_percentage':you_save_percentage,'total_mrp_price':total_mrp_price})
     else:
         form = address_form(instance=address)
-    return render(request,'checkout_page.html',{'total':total,'delivery_charge':delivery_charge,'final_price':final_price,'total_product':total_product,'form':form})
+    return render(request,'checkout_page.html',{'total':total,'delivery_charge':delivery_charge,'final_price':final_price,'total_product':total_product,'form':form,'you_save':you_save,'you_save_percentage':you_save_percentage,'total_mrp_price':total_mrp_price})
 
 
 
