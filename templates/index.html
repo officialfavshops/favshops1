@@ -58,8 +58,8 @@
                                             <!--<li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pickle & Condiment</a></li>
                                             <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Instant Food</a></li>
                                             <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Dry Fruit</a></li>-->
-                                            <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
-                                            <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
+                                            <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Yeepi noodles</a></li>
+                                            <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Hair Oil</a></li>
 
                                         </ul>
                                     </div>
@@ -297,36 +297,32 @@
             <div class=" tab-content tab-content-t ">
                 <div class="tab-pane active text-style" id="tab1">
                     <div class=" con-w3l">
-                        {% for grc in grocery %}
-                        <div class="col-md-3 m-wthree">
+                        {% for obj in grocery %}
+                        <div class="col-md-3 pro-1">
                             <div class="col-m">
-                                <a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img">
-                                    <a href="{% url 'product_details' pk=grc.pk %}"><img src="{{grc.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt=""></a>
-                                    <!--<div class="offer">
-                                        <p><span>Offer</span></p>
-                                    </div>-->
+                                <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                                    <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
                                 </a>
                                 <div class="mid-1">
                                     <div class="women">
-                                        <h6><a href="single.html">{{grc.product_name}}</a>({{grc.quantity}})</h6>
-                                        {% if grc.brand %}
-                                        <p style="margin-top: 5px;color:gray;">{{grc.brand}}</p>
+                                        <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                                        {% if obj.brand %}
+                                        <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
                                         {% else %}
                                         <p style="margin-top: 5px;color:gray;"> favshops</p>
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
-                                        <p style="color:black;"><label><span>&#8377;</span>{{grc.mrp}}</label><em class="item_price"><span>&#8377;</span>{{grc.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{grc.discount_percentage}} %</span></p>
-                                        <!--<div class="block">
-                                            <div class="starbox small ghosting"> </div>
-                                        </div>-->
+                                        <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="add ">
+                                    <div class="add add-2">
+
                                         {% if user.is_authenticated %}
-                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{grc.pk}}">Add to Cart</button> {% endif %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
                                     </div>
-                                    <h6 id="msg{{grc.pk}}" style="color: green;text-align:center;"></h6>
+                                    <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
                                 </div>
                             </div>
                         </div>
