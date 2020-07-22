@@ -221,6 +221,22 @@ def detergent(request):
     detergent = Product.objects.filter(category='detergent').order_by('-upload_time')
     return render(request,'detergent.html',{'detergent':detergent})
 
+def face_cream(request):
+    face_cream = Product.objects.filter(category='face_cream').order_by('-upload_time')
+    return render(request,'face_cream.html',{'face_cream':face_cream})
+
+def powders(request):
+    powders = Product.objects.filter(category='powders').order_by('-upload_time')
+    return render(request,'powders.html',{'powders':powders})
+
+def purfumes(request):
+    purfumes = Product.objects.filter(category='purfumes').order_by('-upload_time')
+    return render(request,'purfumes.html',{'purfumes':purfumes})
+
+def sanitary(request):
+    sanitary = Product.objects.filter(category='sanitary').order_by('-upload_time')
+    return render(request,'sanitary.html',{'sanitary':sanitary})
+
 
 def customers(request):
     user = User.objects.all().order_by('-date_of_join')

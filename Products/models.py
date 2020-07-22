@@ -22,7 +22,10 @@ class Product(models.Model):
         ('Biscuts','Biscuts'),
         ('Tea','Tea'),
         ('Detergent','Detergent'),
-        ('Sanitary pad','Sanitary pad'),
+        ('Sanitary napkins','Sanitary napkins'),
+        ('Face Cream','Face Cream'),
+        ('Powders','Powders'),
+        ('Purfumes','Purfumes'),
         ('Others','Others'),
     )
     boolean = (

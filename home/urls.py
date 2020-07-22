@@ -33,5 +33,9 @@ urlpatterns = [
     path('hair_oil',views.hair_oil,name='hair_oil'),
     path('finail',views.finail,name='finail'),
     path('detergent',views.detergent,name='detergent'),
+    path('face_cream',views.face_cream,name='face_cream'),
+    path('powders',views.powders,name='powders'),
+    path('purfumes',views.purfumes,name='purfumes'),
+    path('sanitary',views.sanitary,name='sanitary'),
     path('search',views.search,name='search'),
 ]
