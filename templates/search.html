@@ -4,64 +4,44 @@
     <p style="color: black;">Type any products by it's Name,Brand etc</p>
     <input class="form-control" id="myInput" type="text" style="margin-top: 5px;" placeholder=" Search..">
     <br>
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr class="table-success">
-                <th>Image</th>
-                <th>Product Name</th>
-                <th>Brand</th>
-                <th>Actual Priceu</th>
-                <th>Branch</th>
-                <th>Passout year</th>
-                <th>Company</th>
-                <th>Profile</th>
-            </tr>
-        </thead>
-        <tbody id="myTable">
-
-            <tr>
-                <div class="product">
-                    <div class="container">
-                        <div class=" con-w3l">
-                            {% for obj in products %}
-                            <div class="col-md-3 pro-1">
-                                <div class="col-m">
-                                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
-                                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
-                                    </a>
-                                    <div class="mid-1">
-                                        <div class="women">
-                                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
-                                            {% if obj.brand %}
-                                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
-                                            {% else %}
-                                            <p style="margin-top: 5px;color:gray;"> favshops</p>
-                                            {% endif %}
-                                        </div>
-                                        <div class="mid-2">
-                                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="add add-2">
-
-                                            {% if user.is_authenticated %}
-                                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
-                                        </div>
-                                        <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
-                                    </div>
-                                </div>
+    <div class="product" id="mysearchdiv">
+        <div class="container">
+            <div class=" con-w3l">
+                {% for obj in products %}
+                <div class="col-md-3 pro-1">
+                    <div class="col-m">
+                        <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                            <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                        </a>
+                        <div class="mid-1">
+                            <div class="women">
+                                <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                                {% if obj.brand %}
+                                <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                                {% else %}
+                                <p style="margin-top: 5px;color:gray;"> favshops</p>
+                                {% endif %}
                             </div>
-                            {% endfor %}
-                            <div class="clearfix"></div>
+                            <div class="mid-2">
+                                <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="add add-2">
+
+                                {% if user.is_authenticated %}
+                                <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
+                            </div>
+                            <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
 
-            </tr>
-
-        </tbody>
-    </table>
 
 
 </div>
@@ -70,7 +50,7 @@
     $(document).ready(function() {
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
-            $("#myTable *").filter(function() {
+            $("#mysearchdiv *").filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
