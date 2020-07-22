@@ -308,7 +308,7 @@
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
-                                        {% if obj.discount_percentage != 0 %}
+                                        {% if obj.discount_percentage != "0" %}
                                         <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
 
                                         {% else %}
