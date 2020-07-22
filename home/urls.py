@@ -32,5 +32,6 @@ urlpatterns = [
     path('yeepi',views.yeepi,name='yeepi'),
     path('hair_oil',views.hair_oil,name='hair_oil'),
     path('finail',views.finail,name='finail'),
+    path('detergent',views.detergent,name='detergent'),
     path('search',views.search,name='search'),
 ]
