@@ -51,7 +51,7 @@
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
             $("#mysearchdiv #sname").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                $(this).toggle($(this).$(".col-md-3 pro-1") > -1)
             });
         });
     });
