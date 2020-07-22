@@ -9487,10 +9487,16 @@
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/settings.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/urls.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../travello/travello/travello/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/beauty_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/beauty_products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/big_sale.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/big_sale.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/biscuts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/biscuts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cold_drinks.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cold_drinks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cooking_oil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cooking_oil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/grocery.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grocery.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/masala.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/masala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/snacks.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/snacks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tea.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tea.html" afterDir="false" />
     </list>

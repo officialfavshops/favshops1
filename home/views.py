@@ -5,6 +5,7 @@ from django.contrib import messages
 from cart.models import Cart
 from order.models import Order
 from User.models import User
+from random import sample
 
 # Create your views here.
 
@@ -74,7 +75,9 @@ def profile_page(request):
 
 def product_details(request,pk):
     prod = Product.objects.get(pk=pk)
-    return render(request,'product_details.html',{'product':prod})
+    products = Product.objects.all()
+    related = sample(products,12)
+    return render(request,'product_details.html',{'product':prod,'related':related})
 
 def delivery_boy(request):
     not_packed = Order.objects.filter(packed = False).order_by('order_id').filter(delivered=False).filter(order_canceled=False)
