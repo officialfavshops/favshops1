@@ -232,7 +232,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="mid-2">
                                 <h5>
-                                    <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price" style="font-weight: bold;margin-left:2px;"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                                    {% if obj.discount_percentage != "0" %}
+                                    <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 10px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
+
+                                    {% else %}
+                                    <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                                    {% endif %}
                                 </h5>
 
                                 <div class="clearfix"></div>
