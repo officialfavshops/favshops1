@@ -1031,6 +1031,108 @@
     </div>
 </div>
 
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3>Washing Powder</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class=" con-w3l">
+            {% for obj in detergent %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                            {% if obj.brand %}
+                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            {% else %}
+                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            {% endif %}
+                        </div>
+                        <div class="mid-2">
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 10px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
+
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add add-2">
+
+                            {% if user.is_authenticated %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
+                        </div>
+                        <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3>Yeepi</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class=" con-w3l">
+            {% for obj in yeepi %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                        <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                            {% if obj.brand %}
+                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            {% else %}
+                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            {% endif %}
+                        </div>
+                        <div class="mid-2">
+                            {% if obj.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 10px;color:red;font-weight:bold;"> {{obj.discount_percentage}} % OFF</span></p>
+
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em></p>
+                            {% endif %}
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add add-2">
+
+                            {% if user.is_authenticated %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
+                        </div>
+                        <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
 
 <!-- smooth scrolling -->
 <script type="text/javascript">

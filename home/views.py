@@ -27,8 +27,15 @@ def index(request):
     biscuts = Product.objects.filter(category='Biscuts').order_by('-upload_time')
     soap = Product.objects.filter(category='Soap').order_by('-upload_time')
     tooth_paste = Product.objects.filter(category='Tooth paste').order_by('-upload_time')
+    sanitary = Product.objects.filter(category='sanitary').order_by('-upload_time')
+    purfumes = Product.objects.filter(category='purfumes').order_by('-upload_time')
+    powders = Product.objects.filter(category='powders').order_by('-upload_time')
+    face_cream = Product.objects.filter(category='face_cream').order_by('-upload_time')
+    detergent = Product.objects.filter(category='detergent').order_by('-upload_time')
+    finail = Product.objects.filter(category='Finail').order_by('-upload_time')
+    yeepi = Product.objects.filter(category='Yeepi noodles').order_by('-upload_time')
 
-    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks,'tea':tea,'biscuts':biscuts,'tooth_paste':tooth_paste,'soap':soap})
+    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks,'tea':tea,'biscuts':biscuts,'tooth_paste':tooth_paste,'soap':soap,'sanitary':sanitary,'purfumes':purfumes,'powders':powders,'face_cream':face_cream,'detergent':detergent,'finail':finail,'yeepi':yeepi})
 
 def cart_page(request):
     mnumber = request.user.mobile_number
