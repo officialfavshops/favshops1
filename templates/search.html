@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content%}
 <div class="container mt-3">
-    <h2 style="color: rgb(241, 6, 151);margin-top:70px;">Search Alumni's</h2>
-    <p style="color: black;">Type something in the input field to search the table for first names, last names, emails, Regdno, Company etc...</p>
+    <h2 style="color: rgb(241, 6, 151);margin-top:70px;">Search Products</h2>
+    <p style="color: black;"></p>
     <input class="form-control" id="myInput" type="text" style="margin-top: 5px;" placeholder=" Search..">
     <br>
     <table class="table table-bordered table-hover">
@@ -23,15 +23,21 @@
                 <td>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href="{% url 'product_details' pk=obj.pk %}"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                            <h4><a href="{% url 'product_details' pk=obj.pk %}"> {{obj.product_name}} </a>( {{obj.quantity}})</h4>
                             {% if obj.brand %}
-                            <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            <h5>
+                                <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
+                            </h5>
                             {% else %}
-                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            <h5>
+                                <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            </h5>
                             {% endif %}
                         </div>
                         <div class="mid-2">
-                            <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            <h5>
+                                <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+                            </h5>
 
                             <div class="clearfix"></div>
                         </div>
