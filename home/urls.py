@@ -31,4 +31,5 @@ urlpatterns = [
     path('tooth_paste',views.tooth_paste,name='tooth_paste'),
     path('yeepi',views.yeepi,name='yeepi'),
     path('hair_oil',views.hair_oil,name='hair_oil'),
+    path('search',views.search,name='search'),
 ]

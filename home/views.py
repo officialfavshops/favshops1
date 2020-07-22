@@ -214,3 +214,6 @@ def customers(request):
     user = User.objects.all().order_by('-date_of_join')
     total = len(user)
     return render(request,'customers.html',{'user':user,'total':total})
+
+def search(request):
+    return render(request,'search.html')
