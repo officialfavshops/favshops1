@@ -15,7 +15,7 @@
                         </a>
                         <div class="mid-1">
                             <div class="women">
-                                <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                                <h6 id="sname"><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
                                 {% if obj.brand %}
                                 <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
                                 {% else %}
@@ -50,8 +50,8 @@
     $(document).ready(function() {
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
-            $("#mysearchdiv *").filter(function() {
-                $(this).toggle($(this).$(".col-md-3 pro-1") > -1)
+            $("#mysearchdiv #sname").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
     });
