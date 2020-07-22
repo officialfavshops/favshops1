@@ -75,7 +75,7 @@
         var pk;
         pk = $(this).attr("data-pk");
         id = "#quantity" + pk
-        cq_id = "#cq" + pk
+        cq_id = "cq" + pk
         val = $(id).val()
         console.log(cq_id)
         $.ajax({
@@ -87,9 +87,9 @@
             dataType: 'json',
             success: function(data) {
                 if (data.updated) {
-                    document.getElementById('total').innerHTML = data.total;
+                    document.getElementById('total').textContent = data.total;
                     document.getElementById(id).selectedIndex = val;
-                    document.getElementById(cq_id).innerHTML = val;
+                    document.getElementById(cq_id).textContent = val;
                 }
             }
         })
