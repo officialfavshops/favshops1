@@ -58,8 +58,8 @@
                                             <!--<li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pickle & Condiment</a></li>
                                             <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Instant Food</a></li>
                                             <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Dry Fruit</a></li>-->
-                                            <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Yeepi noodles</a></li>
-                                            <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Hair Oil</a></li>
+                                            <li><a href="{% url 'yeepi' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Yeepi noodles</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Finail</a></li>
 
                                         </ul>
                                     </div>
@@ -77,15 +77,13 @@
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Ayurvedic </a></li>
-                                            <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Baby Care</a></li>
-                                            <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cosmetics</a></li>
-                                            <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Purfumes</a></li>
-
+                                            <li><a href="{% url 'hair_oil' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Hair Oil</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Face Creams</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Sented Powders</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Purfumes</a></li>
                                         </ul>
-
                                     </div>
-                                    <div class="col-sm-3">
+                                    <!--<div class="col-sm-3">
 
                                         <ul class="multi-column-dropdown">
                                             <li>
@@ -107,7 +105,7 @@
                                             <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Sanitary Needs</a></li>
 
                                         </ul>
-                                    </div>
+                                    </div>-->
                                     <div class="col-sm-3 w3l">
                                         <a href="care.html"><img src="{% static 'template/images/me1.png'%}" class="img-responsive" alt=""></a>
                                     </div>
@@ -333,36 +331,33 @@
                 </div>
                 <div class="tab-pane  text-style" id="tab2">
                     <div class=" con-w3l">
-                        {% for snk in snacks %}
-                        <div class="col-md-3 m-wthree">
+                        {% for obj in snacks %}
+                        <div class="col-md-3 pro-1">
                             <div class="col-m">
-                                <a href="#" data-toggle="modal" data-target="#myModal5" class="offer-img">
-                                    <a href="{% url 'product_details' pk=snk.pk %}"><img src="{{snk.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt=""></a>
-                                    <!--<div class="offer">
-                                        <p><span>Offer</span></p>
-                                    </div>-->
+                                <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
+                                    <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
                                 </a>
                                 <div class="mid-1">
                                     <div class="women">
-                                        <h6><a href="single.html">{{snk.product_name}}</a>( {{snk.quantity}} )</h6>
-                                        {% if grc.brand %}
-                                        <p style="margin-top: 5px;color:gray;">{{snk.brand}}</p>
+                                        <h6><a href="single.html"> {{obj.product_name}} </a>( {{obj.quantity}})</h6>
+                                        {% if obj.brand %}
+                                        <p style="margin-top: 5px;color:gray;">{{obj.brand}}</p>
                                         {% else %}
                                         <p style="margin-top: 5px;color:gray;"> favshops</p>
                                         {% endif %}
                                     </div>
                                     <div class="mid-2">
-                                        <p style="color:black;"><label><span>&#8377;</span>{{snk.mrp}}</label><em class="item_price"><span>&#8377;</span>{{snk.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{snk.discount_percentage}} %</span></p>
-                                        <!--<div class="block">
-                                            <div class="starbox small ghosting"> </div>
-                                        </div>-->
+                                        <p style="color:black;"><label><span>&#8377;</span>{{obj.mrp}}</label><em class="item_price"><span>&#8377;</span>{{obj.discount_price}}</em><span style="margin-left: 20px;color:red;font-weight:bold;"> {{obj.discount_percentage}} %</span></p>
+
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="add">
+                                    <div class="add add-2">
+
                                         {% if user.is_authenticated %}
-                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}">Add to Cart</button> {% endif %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% endif %}
                                     </div>
-                                    <h6 id="msg{{snk.pk}}" style="color: green;text-align:center;"></h6>
+                                    <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
+                                    </h6>
                                 </div>
                             </div>
                         </div>

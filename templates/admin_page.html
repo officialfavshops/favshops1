@@ -38,6 +38,7 @@
                     <li><a href="{% url 'add_products' %}">Add Products</a></li>
                     <li class="active"><a href="{% url 'all_products' %}">All Products</a></li>
                     <li><a href="{% url 'admin_order_summary' %}">Order Summary</a></li>
+                    <li><a href="{% url 'customers' %}">Customers</a></li>
                 </ul>
                 <!--<ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -57,7 +58,7 @@
 
             {% endfor %} {% endif %}
             <h1 style="text-align: center;font-weight:bold;color:brown;"> All Products </h1>
-            <h5 >Total Products Added : {{ total_products}}</h5>
+            <h5>Total Products Added : {{ total_products}}</h5>
 
             <hr> {% if products %}
             <table class="table table-hover">

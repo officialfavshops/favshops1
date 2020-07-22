@@ -20,6 +20,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     is_admin = models.BooleanField(default=False)
     is_delivery_boy = models.BooleanField(default=False)
     #cart = models.ForeignKey(Cart,null=True,blank=True,on_delete=models.SET_NULL)
+    date_of_join = models.DateTimeField(auto_now_add=True,null=True,blank=True)
 
     def make_exist_user(self):
         self.new_user = False

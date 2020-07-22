@@ -8,6 +8,7 @@ urlpatterns = [
     path('wish_list',views.wish_list,name='wish_list'),
     path('forget_password',views.forget_password,name='forget_password'),
     path('admin_page',views.admin_page,name='admin_page'),
+    path('customers',views.customers,name='customers'),
     path('cart_page',views.cart_page,name='cart_page'),
     path('about',views.about,name='about'),
     path('order_history',views.order_history,name='order_history'),
@@ -28,4 +29,6 @@ urlpatterns = [
     path('biscuts',views.biscuts,name='biscuts'),
     path('soap',views.soap,name='soap'),
     path('tooth_paste',views.tooth_paste,name='tooth_paste'),
+    path('yeepi',views.yeepi,name='yeepi'),
+    path('hair_oil',views.hair_oil,name='hair_oil'),
 ]

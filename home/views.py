@@ -4,6 +4,7 @@ from Products.models import Product
 from django.contrib import messages
 from cart.models import Cart
 from order.models import Order
+from User.models import User
 
 # Create your views here.
 
@@ -200,3 +201,16 @@ def tooth_paste(request):
 def tea(request):
     tea = Product.objects.filter(category='Tea').order_by('-upload_time')
     return render(request,'tea.html',{'tea':tea})
+
+def yeepi(request):
+    yeepi = Product.objects.filter(category='Yeepi noodles').order_by('-upload_time')
+    return render(request,'yeepi.html',{'yeepi':yeepi})
+
+def hair_oil(request):
+    hair_oil = Product.objects.filter(category='Hair oil').order_by('-upload_time')
+    return render(request,'hair_oil.html',{'hair_oil':hair_oil})
+
+def customers(request):
+    user = User.objects.all().order_by('-date_of_join')
+    total = len(user)
+    return render(request,'customers.html',{'user':user,'total':total})

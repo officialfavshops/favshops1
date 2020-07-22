@@ -37,8 +37,8 @@
                     </li>-->
                     <li><a href="{% url 'add_products' %}">Add Products</a></li>
                     <li><a href="{% url 'all_products' %}">All Products</a></li>
-                    <li class="active"><a href="{% url 'admin_order_summary' %}">Order Summary</a></li>
-                    <li><a href="{% url 'customers' %}">Customers</a></li>
+                    <li><a href="{% url 'admin_order_summary' %}">Order Summary</a></li>
+                    <li class="active"><a href="{% url 'customers' %}">Customers</a></li>
                 </ul>
                 <!--<ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -49,33 +49,53 @@
     </nav>
 
     <div class="container">
-        <div style="float: right;">
-            <p style="color: black;">Overall Margin : {{overall_margin}}</p>
-            <p style="color: black;">Overall Delivery Charges : {{overall_delivery_charge}}</p>
+        <div class="container">
+            {% if messages %} {% for msg in messages %}
+
+            <div class="alert alert-{{msg.level_tag}}" role="alert" style="margin-top: 5px;">
+                {{msg.message}}
+            </div>
+
+            {% endfor %} {% endif %}
+            <h1 style="text-align: center;font-weight:bold;color:brown;"> All Customers </h1>
+            <h5>Total Customers : {{ total }}</h5>
+
+            <hr> {% if user %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Sl No.</th>
+
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Mobile No.</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Date of Join</th>
+                    </tr>
+                </thead>
+                {% for data in user %}
+                <tbody>
+                    <tr>
+                        <td>{{forloop.counter0}}</td>
+
+                        <td>{{data.first_name}}</td>
+                        <td>{{data.last_name}}</td>
+                        <td>{{data.mobile_number}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.date_of_join}}</td>
+
+
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+            <hr> {% endif %}
+
         </div>
-        <div style="float: left;">
-            <p style="color: black;">Today Margin : {{today_margin}}</p>
-            <p style="color: black;">Today Delivery Charges : {{today_delivery_charge}}</p>
-        </div>
-        <h3 style="text-align: center;font-weight:bold;color:green;">Order Summarizes</h3>
-        <hr style="border-color: black;"> {% for ord in summary %}
-        <u><h3><strong>Order Id :</strong> {{ord.order_id}}</h3></u>
-        <h5><strong>Buy Items :</strong> {{ord.order_items}}</h5>
-        {% if ord.cancel_items %}
-        <h5><strong>Cancel Items :</strong> {{ord.cancel_items}}</h5>
-        {% endif %}
-        <h5><strong>Total Price :</strong> {{ord.total_price}}</h5>
-        <h5><strong>Payment Mode :</strong> {{ord.payment_mode}}</h5>
-        <h5><strong>Order Address :</strong> {{ord.order_address}}</h5>
-        <h5><strong>Order By :</strong> {{ord.order_by}}</h5>
-        <h5><strong>Delivered By :</strong> {{ord.delivered_by}}</h5>
-        <h5><strong>Order Time :</strong> {{ord.order_time}}</h5>
-        <h5><strong>Delivered Time :</strong> {{ord.delivered_time}}</h5>
-        <h5><strong>Total Delivery Charge :</strong> {{ord.delivery_charges}}</h5>
-        <h5><strong>Total Margin :</strong> {{ord.total_margin}}</h5>
-        <hr style="border-color: black;"> {% endfor %}
 
     </div>
+
+
 </body>
 
 </html>
