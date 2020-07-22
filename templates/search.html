@@ -1,9 +1,36 @@
 {% extends 'base.html' %} {% block content %}
-<h3 style="color: black;">We are here to serve your essential products at your doorstep </h3>
-<div class="search-form">
-    <form action="#" method="post">
-        <input type="text" placeholder="Search..." name="Search...">
-        <input type="submit" value=" ">
-    </form>
+<div class="container mt-3">
+    <h2 style="color: rgb(241, 6, 151);margin-top:70px;">Search Products</h2>
+    <p style="color: black;">Type any products by it's Name,Brand etc</p>
+    <input class="form-control" id="myInput" type="text" style="margin-top: 5px;" placeholder=" Search..">
+    <br>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="table-success">
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Regdno.</th>
+                <th>Branch</th>
+                <th>Passout year</th>
+                <th>Company</th>
+                <th>Profile</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            {% for data in user%}
+            <tr>
+
+                <td>{{data.first_name}}</td>
+                <td>{{data.last_name}}</td>
+                <td>{{data.mobile_number}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.date_of_join}}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
 </div>
 {% endblock %}
