@@ -16,11 +16,11 @@
             {% for obj in products %}
             <tr>
                 <td><img src="{{obj.image.url}}" height="200" width="200" alt=""></td>
-                <td>
-                    <tr>{{obj.product_name}}</tr>
-                    <tr>{{obj.brand}}</tr>
-                    <tr>{{obj.actual_price}}</tr>
-                    <tr>{{obj.discount_price}}</tr>
+                <td rowspan="4">
+                    <h6>{{obj.product_name}}</h6>
+                    <h6>{{obj.brand}}</h6>
+                    <h6>{{obj.actual_price}}</h6>
+                    <h6>{{obj.discount_price}}</h6>
                 </td>
             </tr>
 
