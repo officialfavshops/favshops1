@@ -75,7 +75,7 @@ def profile_page(request):
 
 def product_details(request,pk):
     prod = Product.objects.get(pk=pk)
-    products = Product.objects.all()
+    products = list(Product.objects.all())
     related = list(sample(products,12))
     return render(request,'product_details.html',{'product':prod,'related':related})
 
