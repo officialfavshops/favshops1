@@ -26,7 +26,7 @@
                     <p><strong>Quantity</strong> : {{obj.product.quantity}}</p>
                     <p><strong>Actual Price</strong> : <strike>{{obj.product.mrp}}</strike></p>
                     <p><strong>Your Price</strong> : {{obj.product.discount_price}}</p>
-                    <p id="cq{{obj.pk}}"><strong>Your Quantity</strong> : <span>{{obj.customer_quantity}}</span></p>
+                    <p><strong>Your Quantity</strong> : <span id="cq111">{{obj.customer_quantity}}</span></p>
 
                     <p style="margin-top: 5px;;"><a href="{% url 'delete_cart_item' pk=obj.pk %}"><span class="glyphicon glyphicon-remove" style="color: red;"></span> Remove </a> | <label for="quantity">Change Qty : </label>
                         <select name="quantity" class="customer_quantity" id="quantity{{obj.pk}}" data-pk="{{obj.pk}}">
@@ -75,7 +75,7 @@
         var pk;
         pk = $(this).attr("data-pk");
         id = "#quantity" + pk
-        cq_id = "cq" + pk
+        cq_id = "cq111"
         val = $(id).val()
         console.log(cq_id)
         $.ajax({
