@@ -140,7 +140,7 @@
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'profile_page' %}"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
                     <li><a href="{% url 'order_history' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
-                    <li><a href="{% url 'cart_page' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i>Cart ( <h4 id="cart_top" style="color: blue;">0</h4> )</a></li>
+                    <li><a href="{% url 'cart_page' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i>Cart ( <span id="cart_top" style="color: blue;font-size:12px;">0</span> )</a></li>
                     {% else %}
                     <li><a href="{% url 'user_login' %}"><i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
                     <li><a href="{% url 'user_register' %}"><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
