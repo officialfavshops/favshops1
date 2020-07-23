@@ -79,7 +79,7 @@
     <!--Login required modal-->
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         input::-webkit-input-placeholder {
             color: transparent;
@@ -162,43 +162,10 @@
 
         </div>
     </div>
-    <!-- profile -->
-    <div class="modal fade" id="myprofile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal-info">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body modal-spa">
-                    <div class="col-md-5 span-2">
-                        <div class="item">
-                            <img src="{% static 'template/boy.png'%}" class="img-responsive" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-7 span-1 ">
-                        <h3>{{user.first_name }} {{user.last_name}}</h3>
-                        <p class="in-para">Mobile Number : {{user.mobile_number}}</p>
-                        <p class="in-para">Email : {{user.email}}</p>
-                        <div class="price_single">
-                            <!--<span class="reducedfrom "><del>$2.00</del>$1.50</span>-->
 
-                            <div class="clearfix"></div>
-                        </div>
-                        <h4 class="quick">Quick Overview:</h4>
-                        <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
-                        <div class="add-to">
-                            <a href="{% url 'user_logout' %}"><button class="btn btn-danger my-cart-btn my-cart-btn1 " > Logout </button></a> {% if user.is_admin %}
-                            <a href="{% url 'admin_page' %}"><button class="btn btn-danger my-cart-btn my-cart-btn1 " > Admin Page </button></a> {% endif %}
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="container mt-3">
-        <h2 style="color: rgb(241, 6, 151);margin-top:70px;">Search Products</h2>
+        <h2 style="color: rgb(241, 6, 151);margin-top:70px;">Type Product name, brand etc..</h2>
         <p style="color: black;"></p>
         <input class="form-control" id="myInput" type="text" style="margin-top: 5px;" placeholder=" Search..">
         <br>
