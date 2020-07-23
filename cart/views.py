@@ -49,7 +49,7 @@ def add_to_cart_ajax(request):
         }
         return JsonResponse(data)
     else:
-        return redirect('user_login')
+        return render(request,'user_login')
 
 
 def delete_cart_item(request,pk):
