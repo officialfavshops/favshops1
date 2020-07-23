@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="144a685f-a4cd-48c8-ac21-1c110d2a2ea8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/beauty_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/beauty_products.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
