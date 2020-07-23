@@ -57,7 +57,7 @@
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href="{% url 'product_details' pk=obj.pk %}">{{item.product_name}}</a>( {{item.quantity}} )</h6>
+                            <h6><a href="{% url 'product_details' pk=item.pk %}">{{item.product_name}}</a>( {{item.quantity}} )</h6>
                             {% if item.brand %}
                             <p style="margin-top: 5px;color:gray;">{{item.brand}}</p>
                             {% else %}
