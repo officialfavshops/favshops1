@@ -9,8 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta property="og:title" content="Vide" />
-    <meta name="keywords" content="Big store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <meta name="keywords" content="" />
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -78,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <script src="{% static 'template/js/jquery.vide.min.js'%}"></script>
     <!--Login required modal-->
-    <!--<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
     <style>
         input::-webkit-input-placeholder {
@@ -186,7 +185,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="clearfix"></div>
                         </div>
                         <h4 class="quick">Quick Overview:</h4>
-                        <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
+                        <p class="quick_desc"> </p>
                         <div class="add-to">
                             <a href="{% url 'user_logout' %}"><button class="btn btn-danger my-cart-btn my-cart-btn1 " > Logout </button></a> {% if user.is_admin %}
                             <a href="{% url 'admin_page' %}"><button class="btn btn-danger my-cart-btn my-cart-btn1 " > Admin Page </button></a> {% endif %}
@@ -201,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!--login required-->
 
-    <!--<div class="modal fade" id="myModalopen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="myModalopen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -219,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
 
 
     {% block content %} {% endblock %}
@@ -429,6 +428,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- for bootstrap working -->
     <script src="{% static 'template/js/bootstrap.js'%}" type="text/javascript"></script>
     <!-- //for bootstrap working -->
+    <!--login required-->
+
+    <div class="modal fade" id="myModalbp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle" style="font-weight: bold;">Login Required</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center" style="color: red;font-weight:bold;">Customer must login first to add products into their cart.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'user_login' %}"><button type="button" class="btn btn-success" >Login</button></a>
+                    <a href="{% url 'user_register' %}"><button type="button" class="btn btn-primary">Register</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
