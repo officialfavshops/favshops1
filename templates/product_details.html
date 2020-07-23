@@ -61,7 +61,8 @@
                     </ul>-->
                     <div class="add add-3">
                         {% if user.is_authenticated %}
-                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{product.pk}}">Add to Cart</button>
+                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{product.pk}}">Add to Cart</button> {% else %}
+                        <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         <h6 id="msg{{product.pk}}" style="color: green;text-align:center;"></h6> {% else %}
                         <a class="btn btn-danger my-cart-btn my-cart-b" href="#" disabled>Add to Cart</a>
                         <p style="color: rgb(243, 94, 7);">Login Required to add product to cart</p> {% endif %}
@@ -119,7 +120,8 @@
                         </div>
                         <div class="add">
                             {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{item.pk}}">Add to Cart</button> {% endif %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{item.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{item.pk}}" style="color: green;text-align:center;"></h6>
                     </div>
