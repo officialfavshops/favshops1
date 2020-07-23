@@ -323,7 +323,7 @@
 
                                         {% if user.is_authenticated %}
                                         <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
-                                        <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModal1">Add to Cart</button>{% endif %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                                     </div>
                                     <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
                                 </div>
@@ -1199,10 +1199,6 @@
 
     });
 </script>
-
-
-
-
 
 
 <div id="myModalopen" class="modal fade">
