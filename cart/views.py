@@ -10,6 +10,7 @@ from User.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .paytm import Checksum
 import math
+from django.contrib.auth.decorators import login_required
 
 #MERCHENTID = 'rJXvah34753603915703'
 MERCHANTKEY = 'hTF&Qc@AU9Vf_NdM'
@@ -28,28 +29,25 @@ def add_to_cart(request,pk):
     #print(request.user.cart)
     return redirect('index')
 
+
 def add_to_cart_ajax(request):
 
-    if request.user.is_authenticated():
+    pk = request.GET.get('id',None)
+    product = Product.objects.get(pk=pk)
+    mobile_number = request.user.mobile_number
+    total_cart = Cart.objects.filter(mobile_number=mobile_number)
+    cart = Cart.objects.create(mobile_number=mobile_number,product=product)
+    cart.save()
+    new_total_cart = Cart.objects.filter(mobile_number=mobile_number)
+    print('Cart Added')
+    pname = product.product_name
 
-        pk = request.GET.get('id',None)
-        product = Product.objects.get(pk=pk)
-        mobile_number = request.user.mobile_number
-        total_cart = Cart.objects.filter(mobile_number=mobile_number)
-        cart = Cart.objects.create(mobile_number=mobile_number,product=product)
-        cart.save()
-        new_total_cart = Cart.objects.filter(mobile_number=mobile_number)
-        print('Cart Added')
-        pname = product.product_name
-
-        data={
+    data={
             'added': ['True' if len(new_total_cart) > len(total_cart) else 'False'],
             'cart_len':len(new_total_cart),
             'pname':pname
         }
-        return JsonResponse(data)
-    else:
-        return render(request,'user_login')
+    return JsonResponse(data)
 
 
 def delete_cart_item(request,pk):
