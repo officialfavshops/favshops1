@@ -76,10 +76,7 @@
         window.jQuery || document.write('<script src="static/template/js/vendor/jquery-1.11.1.min.js"><\/script>')
     </script>
     <script src="{% static 'template/js/jquery.vide.min.js'%}"></script>
-    <!--Login required modal-->
-    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         input::-webkit-input-placeholder {
             color: transparent;
@@ -213,9 +210,8 @@
                             </div>
                             <div class="add add-2">
 
-                                {% if user.is_authenticated %}
-                                <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
-                                <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
+
+                                <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button>
                             </div>
                             <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
                         </div>
@@ -230,7 +226,7 @@
 
     <!--login required-->
 
-    <div class="modal fade" id="myModalopen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!--<div class="modal fade" id="myModalopen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -248,7 +244,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!--footer-->
     <div class="footer">
@@ -426,6 +422,7 @@
                     if (data.added) {
                         msg = "Successfylly Added to your cart.";
                         var msgid = 'msg' + pid
+                        document.getElementById(msgid).style.color = "green";
                         document.getElementById(msgid).innerHTML = msg;
 
                         setTimeout(function() {
@@ -434,6 +431,12 @@
                         document.getElementById("cart_len").innerHTML = data.cart_len;
                     }
 
+                },
+                error: function(data) {
+                    msg = "Login Required to add Product .";
+                    var msgid = 'msg' + pid
+                    document.getElementById(msgid).style.color = "red";
+                    document.getElementById(msgid).innerHTML = msg;
                 }
             })
 
