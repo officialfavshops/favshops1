@@ -76,8 +76,8 @@
                         <div class="add">
 
                             {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{item.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalbp">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{item.pk}}" style="color: green;text-align:center;"></h6>
                     </div>
@@ -95,7 +95,7 @@
 
 <!--login required-->
 
-<div class="modal fade" id="myModalopen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="myModalbp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
