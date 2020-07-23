@@ -52,7 +52,7 @@
             {% for item in beauty_products %}
             <div class="col-md-3 pro-1">
                 <div class="col-m">
-                    <a href="{% url 'product_details' pk=item.pk %}" data-toggle="modal" data-target="#myModal1" class="offer-img">
+                    <a href="{% url 'product_details' pk=item.pk %}" data-toggle="modal" class="offer-img">
                         <img src="{{item.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt="">
                     </a>
                     <div class="mid-1">
@@ -92,6 +92,10 @@
 </div>
 
 
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+{% endblock %}
 
 <!--login required-->
 
