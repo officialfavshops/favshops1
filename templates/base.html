@@ -374,7 +374,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     if (data.added) {
                         msg = "Successfylly Added to your cart.";
                         var msgid = 'msg' + pid
-                        document.getElementById("cart_len").style.color = "green";
+                        document.getElementById("msgid").style.color = "green";
                         document.getElementById(msgid).innerHTML = msg;
 
                         setTimeout(function() {
@@ -387,7 +387,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 error: function(data) {
                     msg = "Login Required";
                     var msgid = 'msg' + pid
-                    document.getElementById("cart_len").style.color = "red";
+                    document.getElementById("msgid").style.color = "red";
                     document.getElementById(msgid).innerHTML = msg;
 
                     setTimeout(function() {
