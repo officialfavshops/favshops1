@@ -30,22 +30,26 @@ def add_to_cart(request,pk):
 
 def add_to_cart_ajax(request):
 
-    pk = request.GET.get('id',None)
-    product = Product.objects.get(pk=pk)
-    mobile_number = request.user.mobile_number
-    total_cart = Cart.objects.filter(mobile_number=mobile_number)
-    cart = Cart.objects.create(mobile_number=mobile_number,product=product)
-    cart.save()
-    new_total_cart = Cart.objects.filter(mobile_number=mobile_number)
-    print('Cart Added')
-    pname = product.product_name
+    if request.user.is_authenticated():
 
-    data={
+        pk = request.GET.get('id',None)
+        product = Product.objects.get(pk=pk)
+        mobile_number = request.user.mobile_number
+        total_cart = Cart.objects.filter(mobile_number=mobile_number)
+        cart = Cart.objects.create(mobile_number=mobile_number,product=product)
+        cart.save()
+        new_total_cart = Cart.objects.filter(mobile_number=mobile_number)
+        print('Cart Added')
+        pname = product.product_name
+
+        data={
             'added': ['True' if len(new_total_cart) > len(total_cart) else 'False'],
             'cart_len':len(new_total_cart),
             'pname':pname
         }
-    return JsonResponse(data)
+        return JsonResponse(data)
+    else:
+        return redirect('user_login')
 
 
 def delete_cart_item(request,pk):
