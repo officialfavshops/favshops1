@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="144a685f-a4cd-48c8-ac21-1c110d2a2ea8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/beauty_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/beauty_products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/big_sale.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/big_sale.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/biscuts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/biscuts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cold_drinks.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cold_drinks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cooking_oil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cooking_oil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detergent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detergent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/face_cream.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/face_cream.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/finail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/finail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/grocery.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grocery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hair_oil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hair_oil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/powders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/powders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
