@@ -8,5 +8,5 @@ class Cart(models.Model):
     add_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.product.name
+        return self.product.product_name
 

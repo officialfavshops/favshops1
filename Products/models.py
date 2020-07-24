@@ -52,4 +52,4 @@ class Product(models.Model):
     out_of_stock = models.BooleanField(max_length=20,null=True,blank=True,choices=boolean)
 
     def __str__(self):
-        return self.name
+        return self.product_name
