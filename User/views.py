@@ -67,9 +67,9 @@ def logout(request):
 #    return redirect('/')
 
 def forget_password_ajax(request):
-
+    
     number = request.GET.get('number',None)
     data = {
-            'exist_num' : User.objects.filter(mobile_number__iexact = number).exist()
+            'exist_num' : User.objects.filter(mobile_number__iexact = number).exists()
         }
     return JsonResponse(data)
