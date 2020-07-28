@@ -2,8 +2,8 @@
 <!--banner-->
 <div class="banner-top">
     <div class="container">
-        <h3>Login</h3>
-        <h4><a href="/">Home</a><label>/</label>Login</h4>
+        <h3>Verify</h3>
+        <h4><a href="/">Home</a><label>/</label>Verify</h4>
         <div class="clearfix"> </div>
     </div>
 </div>
@@ -13,19 +13,20 @@
 
     <div class="main-agileits">
         <div class="form-w3agile">
-            <h3>Forget Password</h3>
+            <h3>OTP Verification</h3>
             {% if messages%}
             <h4 style="color: red;margin-bottom:5px;font-weight:bold;">{{messages}}</h4>
             {% endif %}
-            <form action="{% url 'forget_password' %}" method="post" name="form">
+            <form action="#" method="post">
                 {% csrf_token %}
+                <h5 style="color: gray;margin-bottom:10px;">Enter the <strong>OTP</strong> you have received on your email <strong>{{email}}</strong>.</h5>
                 <div class="key">
                     <i class="fa fa-mobile" style="color:darkorange;" aria-hidden="true"></i>
                     <input type="text" id="forget_mobile_number" name="forget_mobile_number" required><span style="color: gray;font-weight:bold;">Mobile Number</span>
                     <div class="clearfix"></div>
                 </div>
-                <h5 style="color: gray;margin-bottom:10px;">Enter your Registered <strong>Mobile number</strong> to get verification code on your associated <strong>email</strong>.</h5>
-                <input type="submit" value="Send OTP">
+
+                <button class="btn btn-primary"><input type="submit" value="Verify OTP"></button>
             </form>
         </div>
         <div class="forg">
@@ -41,8 +42,6 @@
 <script>
     $("#forget_mobile_number").unbind().change(function() {
         var number = $(this).val();
-        var number_notexist = false;
-        var not_valid = false;
         $.ajax({
             url: '{% url "forget_password_ajax" %}',
             data: {
@@ -53,15 +52,11 @@
 
                 if (data.length != 10) {
                     alert('Please enter a vaild mobile number of 10 digits');
-                    not_valid = true;
                 } else {
-                    not_valid = false;
                     if (data.exist_num) {
-                        number_notexist = false;
                         console.log('Number exist');
                     } else {
                         alert("This number does not exist");
-                        number_notexist = true;
                     }
                 }
 
@@ -69,18 +64,6 @@
 
         })
     });
-
-    const form = document.querySelector('form');
-    form.onsubmit = function(e) {
-        if (number_notexist) {
-            e.preventDefault();
-            alert("Mobile number does not exist ");
-        }
-        if (not_valid) {
-            e.e.preventDefault();
-            alert("This is not a valid mobile number of 10 digits");
-        }
-    }
 </script>
 
 
