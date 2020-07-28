@@ -70,6 +70,6 @@ def forget_password_ajax(request):
     
     number = request.GET.get('number')
     data = {
-            'exist_num' : User.objects.get(mobile_number = number).exist()
+            'exist_num' : User.objects.get(mobile_number = number).exist() 
         }
     return JsonResponse(data)
