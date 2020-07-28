@@ -60,7 +60,7 @@ def logout(request):
     return redirect('/')
 
 def forget_password(request):
-    mobile_number = request.POST['mobile_number']
+    mobile_number = request.POST['forget_mobile_number']
     message = ' '
     user = User.objects.filter(mobile_number__iexact = mobile_number)
     email = user.email
