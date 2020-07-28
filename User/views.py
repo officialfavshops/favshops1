@@ -59,7 +59,7 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
-def forget_password(request):
+def verify_forget_password(request):
     mobile_number = request.POST['forget_mobile_number']
     message = ' '
     user = User.objects.get(mobile_number__iexact = mobile_number)
