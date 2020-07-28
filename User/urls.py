@@ -7,6 +7,6 @@ urlpatterns = [
     path('validate_mobileno',views.validate_mobileno,name='validate_mobileno'),
     path('validate_email',views.validate_email,name='validate_email'),
     path('user_logout',views.logout,name='user_logout'),
-    path('user/send_otp',views.send_otp,name='user/send_otp'),
+    path('send_otp',views.send_otp,name='user/send_otp'),
     path('forget_password_ajax',views.forget_password_ajax,name='forget_password_ajax'),
 ]
