@@ -65,11 +65,11 @@ def forget_password(request):
     user = User.objects.filter(mobile_number__iexact = mobile_number)
     email = user.email
     return redirect('/')
-    
+
 def forget_password_ajax(request):
-    
-    number = request.GET.get('number')
+
+    number = request.GET.get('number',None)
     data = {
-            'exist_num' : User.objects.get(mobile_number = number).exist() 
+            'exist_num' : User.objects.filter(mobile_number == number).exist()
         }
     return JsonResponse(data)
