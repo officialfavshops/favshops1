@@ -17,7 +17,7 @@
             {% if messages%}
             <h4 style="color: red;margin-bottom:5px;font-weight:bold;">{{messages}}</h4>
             {% endif %}
-            <form action="#" method="post">
+            <form action="{% url 'forget_password' %}" method="post">
                 {% csrf_token %}
                 <h5 style="color: gray;margin-bottom:10px;">Enter the <strong>OTP</strong> you have received on your email <strong>{{email}}</strong>.</h5>
                 <div class="key">

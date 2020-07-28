@@ -59,12 +59,12 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
-#def forget_password(request):
-#    mobile_number = request.POST['mobile_number']
-#    message = ' '
-#    user = User.objects.filter(mobile_number__iexact = mobile_number)
-#    email = user.email
-#    return redirect('/')
+def forget_password(request):
+    mobile_number = request.POST['mobile_number']
+    message = ' '
+    user = User.objects.filter(mobile_number__iexact = mobile_number)
+    email = user.email
+    return redirect(request,'verify_otp.html',{'email':email})
 
 def forget_password_ajax(request):
     
