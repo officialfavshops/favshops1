@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from home.views import user_login
 #from django.contrib.auth import authenticate,login
 # Create your views here.
-import random
+from random import sample
 from django.core.mail import send_mail
 
 
@@ -68,7 +68,7 @@ def send_otp(request):
     user = User.objects.get(mobile_number__iexact = mobile_number)
     email = user.email
     list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','a','b','c','x','y','z','0','1','2','3','4','5','6','7','8','9']
-    otp = random.choices(list,4)
+    otp = sample(list,4)
     subject = 'FAVShops : Reset Password'
     msg = 'Your OTP to reset your Account Password is : '+ str(otp)
     sender = 'officialfavshops@gmail.com'
