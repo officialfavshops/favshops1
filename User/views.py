@@ -64,7 +64,7 @@ def send_otp(request):
     message = ' '
     user = User.objects.get(mobile_number__iexact = mobile_number)
     email = user.email
-    return redirect(request,'verify_otp.html',{'email':email})
+    return render(request,'verify_otp.html',{'email':email})
 
 def forget_password_ajax(request):
     
