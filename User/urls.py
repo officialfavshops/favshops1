@@ -9,4 +9,5 @@ urlpatterns = [
     path('user_logout',views.logout,name='user_logout'),
     path('send_otp',views.send_otp,name='send_otp'),
     path('forget_password_ajax',views.forget_password_ajax,name='forget_password_ajax'),
+    path('verify_otp',views.verify_otp,name='verify_otp'),
 ]

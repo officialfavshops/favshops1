@@ -17,13 +17,14 @@
             {% if messages%}
             <h4 style="color: red;margin-bottom:5px;font-weight:bold;">{{messages}}</h4>
             {% endif %}
-            <form action="#" method="post">
+            <form action="{% url 'verify_otp' %}" method="post">
                 {% csrf_token %}
                 <h5 style="color: gray;margin-bottom:10px;">Enter the <strong>OTP</strong> you have received on your email <strong>{{email}}</strong>.</h5>
                 <div class="key">
                     <i class="fa fa-paper-plane" style="color:darkorange;" aria-hidden="true"></i>
                     <input type="hidden" name="otp" value="{{otp}}">
-                    <input type="text" id="forget_mobile_number" name="forget_mobile_number" required><span style="color: gray;font-weight:bold;">OTP</span>
+                    <input type="hidden" name="mobile_number" value="{{mobile_number}}">
+                    <input type="text" id="user_otp" name="user_otp" required><span style="color: gray;font-weight:bold;">OTP</span>
                     <div class="clearfix"></div>
                 </div>
 

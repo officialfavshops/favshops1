@@ -69,13 +69,14 @@ def send_otp(request):
     email = user.email
     list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','a','b','c','x','y','z','0','1','2','3','4','5','6','7','8','9']
     otp = sample(list,4)
+    otp_str = ''.join(otp)
     subject = 'FAVShops : Reset Password'
     msg = 'Your OTP to reset your Account Password is : '+ str(otp)
     sender = 'officialfavshops@gmail.com'
     receiver = email
     send_mail(subject,msg,sender,[receiver],fail_silently=False)
 
-    return render(request,'verify_otp.html',{'email':email,'otp':otp})
+    return render(request,'verify_otp.html',{'email':email,'otp':otp,'mobile_number':user.mobile_number})
 
 def forget_password_ajax(request):
     
@@ -85,3 +86,13 @@ def forget_password_ajax(request):
             'length': len(number)
         }
     return JsonResponse(data)
+
+def verify_otp(request):
+    message = ''
+    otp = request.POST['otp']
+    user_otp = request.POST['user_otp']
+    mobile_number = request.POST['mobile_number']
+    if otp == user_otp:
+        return render(request,'change_password.html',{'mobile_number':mobile_number})
+    else:
+        pass
