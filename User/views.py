@@ -67,8 +67,9 @@ def forget_password(request):
     return redirect('/')
     
 def forget_password_ajax(request):
-    if request.method == 'GET':
-        number = request.GET.get('number')
-        data = {
+    
+    number = request.GET.get('number')
+    data = {
             'exist_num' : User.objects.get(mobile_number = number).exist()
         }
+    return JsonResponse(data)
