@@ -5,6 +5,9 @@ from django.http import JsonResponse
 from home.views import user_login
 #from django.contrib.auth import authenticate,login
 # Create your views here.
+import random
+from django.core.mail import send_mail
+
 
 def register(request):
     if request.method == 'POST':
@@ -64,7 +67,15 @@ def send_otp(request):
     message = ' '
     user = User.objects.get(mobile_number__iexact = mobile_number)
     email = user.email
-    return render(request,'verify_otp.html',{'email':email})
+    list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','a','b','c','x','y','z','0','1','2','3','4','5','6','7','8','9']
+    otp = random.choices(list,4)
+    subject = 'FAVShops : Reset Password'
+    msg = 'Your OTP to reset your Account Password is : '+ str(otp)
+    sender = 'officialfavshops@gmail.com'
+    receiver = email
+    send_mail(subject,msg,sender,[receiver],fail_silently=False)
+
+    return render(request,'verify_otp.html',{'email':email,'otp':otp})
 
 def forget_password_ajax(request):
     
