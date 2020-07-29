@@ -71,12 +71,12 @@ def send_otp(request):
     otp = sample(list,4)
     otp_str = ''.join(otp)
     subject = 'FAVShops : Reset Password'
-    msg = 'Your OTP to reset your Account Password is : '+ str(otp)
+    msg = 'Your OTP to reset your Account Password is : '+ str(ototp_strp)
     sender = 'officialfavshops@gmail.com'
     receiver = email
     send_mail(subject,msg,sender,[receiver],fail_silently=False)
 
-    return render(request,'verify_otp.html',{'email':email,'otp':otp,'mobile_number':user.mobile_number})
+    return render(request,'verify_otp.html',{'email':email,'otp':otp_str,'mobile_number':user.mobile_number})
 
 def forget_password_ajax(request):
     
