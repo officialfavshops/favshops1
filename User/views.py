@@ -71,7 +71,7 @@ def send_otp(request):
     otp = sample(list,4)
     otp_str = ''.join(otp)
     subject = 'FAVShops : Reset Password'
-    msg = 'Your OTP to reset your Account Password is : '+ str(ototp_strp)
+    msg = 'Your OTP to reset your Account Password is : '+ str(otp_str)
     sender = 'officialfavshops@gmail.com'
     receiver = email
     send_mail(subject,msg,sender,[receiver],fail_silently=False)
