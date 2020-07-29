@@ -96,3 +96,13 @@ def verify_otp(request):
         return render(request,'change_password.html',{'mobile_number':mobile_number})
     else:
         pass
+
+def save_new_password(request):
+    mobile_number = request.POST['mobile_number']
+    password = request.POST['password']
+
+    user = User.objects.get('mobile_number' == mobile_number)
+    user.set_password(password)
+    user.confirm_password = password
+    user.save()
+    return redirect('user/login')
