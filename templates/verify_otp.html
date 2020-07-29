@@ -22,7 +22,7 @@
                 <h5 style="color: gray;margin-bottom:10px;">Enter the <strong>OTP</strong> you have received on your email <strong>{{email}}</strong>.</h5>
                 <div class="key">
                     <i class="fa fa-paper-plane" style="color:darkorange;" aria-hidden="true"></i>
-                    <input type="hidden" name="otp" value="{{otp}}">
+                    <input type="hidden" id="otp" name="otp" value="{{otp}}">
                     <input type="hidden" name="mobile_number" value="{{mobile_number}}">
                     <input type="text" id="user_otp" name="user_otp" required><span style="color: gray;font-weight:bold;">OTP</span>
                     <div class="clearfix"></div>
@@ -42,30 +42,19 @@
 {% block javascript %}
 
 <script>
-    $("#forget_mobile_number").unbind().change(function() {
-        var number = $(this).val();
-        $.ajax({
-            url: '{% url "forget_password_ajax" %}',
-            data: {
-                'number': number
-            },
-            dataType: 'json',
-            success: function(data) {
+    const form = document.querySelector('form');
+    const otp = document.getElementById('otp');
+    const user_otp = document.getElementById('user_otp');
 
-                if (data.length != 10) {
-                    alert('Please enter a vaild mobile number of 10 digits');
-                } else {
-                    if (data.exist_num) {
-                        console.log('Number exist');
-                    } else {
-                        alert("This number does not exist");
-                    }
-                }
+    form.onsubmit = function(e) {
+        if (otp.value === user_otp.value) {
+            console.log("OTP Matched");
+        } else {
+            e.preventDefault();
+            alert("OTP Didn't match ");
+        }
 
-            },
-
-        })
-    });
+    }
 </script>
 
 
