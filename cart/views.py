@@ -11,6 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 from .paytm import Checksum
 import math
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+
 
 #MERCHENTID = 'rJXvah34753603915703'
 MERCHANTKEY = 'hTF&Qc@AU9Vf_NdM'
@@ -290,7 +292,7 @@ def create_order_cod(request):
     for item in cart:
         item.delete()
 
-    return id,final_price
+    return id,final_price,total_address
 
 
 @csrf_exempt
@@ -319,8 +321,14 @@ def payment_mode(request):
         mode = request.POST['payment']
         if mode == 'cod':
             print('hi')
-            id,total = create_order_cod(request)
+            id,total,address = create_order_cod(request)
+            number = request.user.mobile_number
+            subject = 'New Order Received'
+            msg = "<html><body><h1>{0}</h1><h2>{1}</h2><h3>{2}</h3><p><a href="tel:{3}" style="text-decoration: none;">{4}</a></p></body></html>".format(id,total,address,number,number)
+            sender = 'officialfavshops@gmail.com'
+            receiver = 'tarachandpattu@gmail.com'
             if id:
+                send_mail(subject,msg,sender,[receiver],fail_silently=False)
                 return render(request,'success_order.html',{'id':id,'total':total})
         else:
             print('hello')
