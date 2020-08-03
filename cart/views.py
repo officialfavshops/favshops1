@@ -324,7 +324,7 @@ def payment_mode(request):
             id,total,address = create_order_cod(request)
             number = request.user.mobile_number
             subject = 'New Order Received'
-            msg = "<html><body><h1>{0}</h1><h2>{1}</h2><h3>{2}</h3><p><a href="tel:{3}" >{4}</a></p></body></html>".format(id,total,address,number,number)
+            msg = "<html><body><h1>{0}</h1><h2>{1}</h2><h3>{2}</h3><h4><b>{4}</b></h4></body></html>".format(id,total,address,number,number)
             sender = 'officialfavshops@gmail.com'
             receiver = 'tarachandpattu@gmail.com'
             if id:
