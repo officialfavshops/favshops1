@@ -49,7 +49,7 @@ class Product(models.Model):
     special_offer = models.CharField(max_length=20,null=True,blank=True,choices=boolean)
     best_offer = models.CharField(max_length=20,null=True,blank=True,choices=boolean)
     upload_time = models.DateTimeField(auto_now_add=True)
-    out_of_stock = models.BooleanField(max_length=20,null=True,blank=True,choices=boolean)
+    out_of_stock = models.CharField(max_length=20,null=True,blank=True,choices=boolean)
 
     def __str__(self):
         return self.product_name
