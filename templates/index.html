@@ -421,7 +421,7 @@
                                     <div class="add">
 
                                         {% if user.is_authenticated %}
-                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}">Add to Cart</button> {% elif snk.out_of_stock %}
                                         <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}" disabled>Add to Cart</button> {% else %}
                                         <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                                     </div>
@@ -466,7 +466,7 @@
                                     <div class="add">
 
                                         {% if user.is_authenticated %}
-                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
+                                        <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}">Add to Cart</button> {% elif snk.out_of_stock %}
                                         <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{snk.pk}}" disabled>Add to Cart</button> {% else %}
                                         <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                                     </div>
