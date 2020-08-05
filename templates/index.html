@@ -328,7 +328,7 @@
                                     </div>
                                     <div class="add add-2">
 
-                                        {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                                        {% if user.is_authenticated %} {% if obj.out_of_stock == 'True' %}
                                         <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
                                         <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                                         <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
@@ -588,9 +588,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
@@ -646,9 +646,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
@@ -703,9 +703,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %}{% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
@@ -761,9 +761,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
@@ -819,9 +819,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;"></h6>
@@ -877,9 +877,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
@@ -935,9 +935,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
@@ -994,9 +994,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %}{% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
@@ -1053,9 +1053,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
@@ -1111,9 +1111,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
@@ -1169,9 +1169,9 @@
                         <div class="add add-2">
 
 
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% elif obj.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if not obj.out_of_stock %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{obj.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{obj.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{obj.pk}}" style="color: green;text-align:center;">
