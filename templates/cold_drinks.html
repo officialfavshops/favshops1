@@ -53,7 +53,7 @@
             <div class="col-md-3 pro-1">
                 <div class="col-m">
                     <a href="{% url 'product_details' pk=item.pk %}" class="offer-img">
-                        <img src="{{item.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt=""> {% if item.out_of_stock %}
+                        <img src="{{item.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt=""> {% if item.out_of_stock == 'True' %}
                         <div class="offer">
                             <p><span>Not Available</span></p>
                         </div>
@@ -78,9 +78,9 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="add">
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{item.pk}}">Add to Cart</button> {% elif item.out_of_stock %}
-                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{item.pk}}" disabled>Add to Cart</button> {% else %}
+                            {% if user.is_authenticated %} {% if item.out_of_stock == 'False' %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{item.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{item.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                             <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
                         </div>
                         <h6 id="msg{{item.pk}}" style="color: green;text-align:center;"></h6>
