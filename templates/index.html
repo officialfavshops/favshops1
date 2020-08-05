@@ -302,7 +302,7 @@
                         <div class="col-md-3 pro-1">
                             <div class="col-m">
                                 <a href="{% url 'product_details' pk=obj.pk %}" class="offer-img">
-                                    <img src="{{obj.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt=""> {% if obj.out_of_stock %}
+                                    <img src="{{obj.image.url}}" style="height:150px;width:150px;" height="150" width="150" class="img-responsive" alt=""> {% if obj.out_of_stock %}
                                     <div class="offer">
                                         <p><span>Not Available</span></p>
                                     </div>
