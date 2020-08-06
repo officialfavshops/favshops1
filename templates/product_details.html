@@ -15,7 +15,11 @@
                 <div class="single-w3agile">
 
                     <div id="picture-frame">
-                        <img src="{{product.image.url}}" alt="" class="img-responsive" />
+                        <img src="{{product.image.url}}" alt="" class="img-responsive" /> {% if product.out_of_stock == 'True' %}
+                        <div class="offer">
+                            <p><span>Not Available</span></p>
+                        </div>
+                        {% endif %}
                     </div>
                     <script src="{% static 'template/js/jquery.zoomtoo.js' %}"></script>
                     <script>
@@ -60,10 +64,10 @@
                         <li><a href="#" class="icon dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i><span></span></a></li>
                     </ul>-->
                     <div class="add add-3">
-                        {% if user.is_authenticated %}
+                        {% if user.is_authenticated %} {% if product.out_of_stock == 'False' %}
                         <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{product.pk}}">Add to Cart</button> {% else %}
+                        <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{product.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
                         <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
-
                     </div>
 
 

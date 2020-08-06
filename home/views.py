@@ -241,7 +241,7 @@ def purfumes(request):
     return render(request,'purfumes.html',{'purfumes':purfumes})
 
 def sanitary(request):
-    sanitary = Product.objects.filter(category='sanitary').order_by('-upload_time')
+    sanitary = Product.objects.filter(category='Sanitary napkins').order_by('-upload_time')
     return render(request,'sanitary.html',{'sanitary':sanitary})
 
 
