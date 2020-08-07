@@ -237,7 +237,7 @@ def powders(request):
     return render(request,'powders.html',{'powders':powders})
 
 def purfumes(request):
-    purfumes = Product.objects.filter(category='purfumes').order_by('-upload_time')
+    purfumes = Product.objects.filter(category='Purfumes').order_by('-upload_time')
     return render(request,'purfumes.html',{'purfumes':purfumes})
 
 def sanitary(request):
