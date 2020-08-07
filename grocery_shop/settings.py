@@ -140,8 +140,8 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 MEDIA_URL = '/media/'
 #MEDIA_URL = 'public_html/media/product_images/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-#MEDIA_ROOT = 'public_html/media/product_images/'
+#MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join('public_html','media')
 
 
 
