@@ -229,7 +229,7 @@ def detergent(request):
     return render(request,'detergent.html',{'detergent':detergent})
 
 def face_cream(request):
-    face_cream = Product.objects.filter(category='face_cream').order_by('-upload_time')
+    face_cream = Product.objects.filter(category='Face Cream').order_by('-upload_time')
     return render(request,'face_cream.html',{'face_cream':face_cream})
 
 def powders(request):
