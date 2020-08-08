@@ -15,7 +15,7 @@ from django.core.mail import send_mail
 
 
 #MERCHENTID = 'rJXvah34753603915703'
-MERCHANTKEY = 'hTF&Qc@AU9Vf_NdM'
+MERCHANTKEY = 'HnK5X1vX%i!5cTHb'
 
 orderid = 'FAV0000'
 
@@ -287,7 +287,7 @@ def create_order_paytm(request):
             order_id = obj.generate_id()
             print(total)
             data_dict = {
-                'MID': 'rJXvah34753603915703',
+                'MID': 'OihTwq23202901931701',
                 'ORDER_ID': str(order_id),
                 'TXN_AMOUNT': str(total),
                 'CUST_ID': request.user.email,
@@ -394,7 +394,7 @@ def payment_mode(request):
                 return render(request,'success_order.html',{'id':id,'total':total})
 
         elif mode == 'paytm':
-            create_order_paytm(request)
+            create_order_paytm()
 
         else:
             print('hello')
