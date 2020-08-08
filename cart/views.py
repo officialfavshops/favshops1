@@ -290,7 +290,7 @@ def create_order_paytm(request):
             'TXN_AMOUNT': str(final_price),
             'CUST_ID': request.user.email,
             'INDUSTRY_TYPE_ID': 'Retail',
-            'WEBSITE': 'DEFAULT',
+            'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
             'CALLBACK_URL':'http://localhost:8000/cart/handlerequest/',
             }
