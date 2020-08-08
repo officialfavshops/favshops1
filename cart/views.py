@@ -280,7 +280,7 @@ def create_order_paytm(request):
 
     ordid = generate_id()
     id = ordid
-    payment_mode = 'COD'
+    payment_mode = ''
     status = 'Shipping'
     if request.method == 'POST':
         
