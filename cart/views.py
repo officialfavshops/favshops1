@@ -302,8 +302,6 @@ def create_order_paytm(request):
     return redirect('cart_checkout')
 
 
-
-
 def create_order_cod(request):
     mnumber = request.user.mobile_number
     total = 0.0
