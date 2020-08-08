@@ -266,7 +266,7 @@ def create_order_paytm(request):
     #id = Orderid.generate_id()
 
     if total <= 100:
-            delivery_charge = 10
+        delivery_charge = 10
     elif total > 100 and total <= 200:
         delivery_charge = 15
     elif total > 200 and total <= 350:
