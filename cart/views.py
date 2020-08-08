@@ -219,6 +219,8 @@ def cart_checkout(request):
 
     #return render(request,'checkout_page.html',{'total':total,'form':form,'total_product':total_product})
 
+
+
 def create_order(request,response_dict):
     mnumber = request.user.mobile_number
     total = 0.0
@@ -244,6 +246,66 @@ def generate_id():
         return new_id
     else:
         return 'FAV0001'
+
+
+def create_order_paytm(request):
+    mnumber = request.user.mobile_number
+    total = 0
+    param_dict = {}
+
+    cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
+    address = Address.objects.filter(mobile_number = mnumber).first()
+    total_product = len(cart)
+    for data in cart:
+            total += int(data.product.discount_price) * int(data.product.quantity.split(' ')[0])
+
+
+    if request.method == 'POST':
+        total = 0
+        number = request.user.mobile_number
+        if address:
+            form = address_form(request.POST or None,instance=address)
+        else:
+            form = address_form(request.POST or None)
+
+        for data in cart:
+            print(data.product.discount_price)
+            total += int(data.product.discount_price)
+        print(total)
+        if form.is_valid():
+            addr = form.save(commit=False)
+            addr.mobile_number = mnumber
+            addr.save()
+            at = form.cleaned_data['at']
+            post = form.cleaned_data['post']
+            panchayat = form.cleaned_data['panchayat']
+            pin = form.cleaned_data['pin']
+            dist = form.cleaned_data['dist']
+            state = form.cleaned_data['state']
+            address = at + " , " + post + " , " + panchayat + " , " + dist + " , " + pin + " , " + state
+            obj = Order()
+            order_id = obj.generate_id()
+            print(total)
+            data_dict = {
+                'MID': 'rJXvah34753603915703',
+                'ORDER_ID': str(order_id),
+                'TXN_AMOUNT': str(total),
+                'CUST_ID': request.user.email,
+                'INDUSTRY_TYPE_ID': 'Retail',
+                'WEBSITE': 'DEFAULT',
+                'CHANNEL_ID': 'WEB',
+                'CALLBACK_URL':'http://localhost:8000/cart/handlerequest/',
+            }
+            param_dict = data_dict
+            param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(data_dict, MERCHANTKEY)
+            return render(request, 'paytm.html', {'param_dict': param_dict})
+
+    else:
+        form = address_form(instance = address)
+
+    return render(request,'checkout_page.html',{'total':total,'form':form,'total_product':total_product})
+
+
 
 
 def create_order_cod(request):
@@ -330,6 +392,10 @@ def payment_mode(request):
             if id:
                 send_mail(subject,msg,sender,[receiver],fail_silently=False)
                 return render(request,'success_order.html',{'id':id,'total':total})
+
+        elif mode == 'paytm':
+            create_order_paytm(request)
+
         else:
             print('hello')
             return redirect('cart_checkout')

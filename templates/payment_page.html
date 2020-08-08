@@ -34,7 +34,7 @@
             <div class=" text-center" style="margin-top: 10px;margin-bottom:10px;">
                 <form action="{% url 'payment_mode' %}" method="POST">
                     {% csrf_token %}
-                    <input type="radio" name="payment" value="paytm" required disabled>
+                    <input type="radio" name="payment" value="paytm" required>
                     <label for="paytm" style="color: gray;">Paytm / Debit / Credit / UPI</label><br>
                     <input type="radio" name="payment" value="cod">
                     <label for="cod">Cash on delivery</label><br>
