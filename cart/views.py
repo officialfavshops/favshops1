@@ -282,9 +282,8 @@ def create_order_paytm(request):
     id = ordid
     payment_mode = ''
     status = 'Shipping'
-    if request.method == 'POST':
-        
-        data_dict = {
+    
+    data_dict = {
             'MID': 'OihTwq23202901931701',
             'ORDER_ID': str(ordid),
             'TXN_AMOUNT': str(final_price),
@@ -294,12 +293,12 @@ def create_order_paytm(request):
             'CHANNEL_ID': 'WEB',
             'CALLBACK_URL':'http://localhost:8000/cart/handlerequest/',
             }
-        param_dict = data_dict
-        param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(data_dict, MERCHANTKEY)
-        return render(request, 'paytm.html', {'param_dict': param_dict})
+    param_dict = data_dict
+    param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(data_dict, MERCHANTKEY)
+    return render(request, 'paytm.html', {'param_dict': param_dict})
 
     
-    return redirect('cart_checkout')
+   # return redirect('cart_checkout')
 
 
 def create_order_cod(request):
