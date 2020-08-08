@@ -250,46 +250,46 @@ def generate_id():
 
 def create_order_paytm(request):
     mnumber = request.user.mobile_number
-    total = 0
-    param_dict = {}
-
+    total = 0.0
+    delivery_charge = 0
     cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
     address = Address.objects.filter(mobile_number = mnumber).first()
+    al_number = ","
+    if address.alternate_number:
+        al_number = address.alternate_number
+    full_name = address.full_name
+
+    total_address = full_name + " , " + address.at + " , " + address.landmark + " , " + address.panchayat + " , " + address.dist + " , " + address.pin + " , " + al_number
     total_product = len(cart)
     for data in cart:
-            total += int(data.product.discount_price) * int(data.product.quantity.split(' ')[0])
+        total += float(data.product.discount_price) * float(data.customer_quantity)
+    #id = Orderid.generate_id()
 
+    if total <= 100:
+            delivery_charge = 10
+    elif total > 100 and total <= 200:
+        delivery_charge = 15
+    elif total > 200 and total <= 350:
+        delivery_charge = 20
+    elif total > 350 and total <= 500:
+        delivery_charge = 25
+    else:
+        delivery_charge = 0
 
+    final_price = delivery_charge + total
+
+    ordid = generate_id()
+    id = ordid
+    payment_mode = 'COD'
+    status = 'Shipping'
     if request.method == 'POST':
-        total = 0
-        number = request.user.mobile_number
-        if address:
-            form = address_form(request.POST or None,instance=address)
-        else:
-            form = address_form(request.POST or None)
-
-        for data in cart:
-            print(data.product.discount_price)
-            total += int(data.product.discount_price)
-        print(total)
+        
         if form.is_valid():
-            addr = form.save(commit=False)
-            addr.mobile_number = mnumber
-            addr.save()
-            at = form.cleaned_data['at']
-            post = form.cleaned_data['post']
-            panchayat = form.cleaned_data['panchayat']
-            pin = form.cleaned_data['pin']
-            dist = form.cleaned_data['dist']
-            state = form.cleaned_data['state']
-            address = at + " , " + post + " , " + panchayat + " , " + dist + " , " + pin + " , " + state
-            obj = Order()
-            order_id = obj.generate_id()
-            print(total)
+
             data_dict = {
                 'MID': 'OihTwq23202901931701',
-                'ORDER_ID': str(order_id),
-                'TXN_AMOUNT': str(total),
+                'ORDER_ID': str(ordid),
+                'TXN_AMOUNT': str(final_price),
                 'CUST_ID': request.user.email,
                 'INDUSTRY_TYPE_ID': 'Retail',
                 'WEBSITE': 'DEFAULT',
