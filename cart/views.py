@@ -5,7 +5,7 @@ from .models import Cart
 from address.forms import address_form
 from address.models import Address
 from order.models import Order
-from order.models import Order
+
 from User.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .paytm import Checksum
@@ -261,7 +261,7 @@ def create_order_paytm(request):
     else:
         delivery_charge = 0
 
-    final_price = delivery_charge + total
+    final_price =  total + delivery_charge
 
     ordid = generate_id()
     id = ordid
@@ -342,6 +342,13 @@ def handlerequest(request):
             #id,final_price = create_order(request,response_dict)
             id = response_dict['ORDERID']
             final_price = response_dict['TXNAMOUNT']
+
+            order = Order.objects.filter(order_id = id).first()
+            number = order.mobile_number
+            cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
+            for item in cart:
+                item.delete()
+
             return render(request,'success_order.html',{'id':id,'total':final_price})
         else:
             print('order was not successful because' + response_dict['RESPMSG'])
