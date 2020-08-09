@@ -345,7 +345,7 @@ def handlerequest(request):
 
             order = Order.objects.filter(order_id = id).first()
             number = order.mobile_number
-            cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
+            cart = Cart.objects.filter(mobile_number = number).order_by('-add_time')
             for item in cart:
                 item.delete()
 
