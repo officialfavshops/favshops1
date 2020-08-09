@@ -249,6 +249,10 @@ def sanitary(request):
     sanitary = Product.objects.filter(category='Sanitary napkins').order_by('-upload_time')
     return render(request,'sanitary.html',{'sanitary':sanitary})
 
+def non_veg(request):
+    non_veg = Product.objects.filter(category='Non Veg').order_by('-upload_time')
+    return render(request,'non_veg.html',{'non_veg':non_veg})
+
 
 def customers(request):
     user = User.objects.all().order_by('-date_of_join')

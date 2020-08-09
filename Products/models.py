@@ -26,6 +26,7 @@ class Product(models.Model):
         ('Face Cream','Face Cream'),
         ('Powders','Powders'),
         ('Purfumes','Purfumes'),
+        ('Non Veg','Non Veg'),
         ('Others','Others'),
     )
     boolean = (

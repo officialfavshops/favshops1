@@ -38,4 +38,5 @@ urlpatterns = [
     path('purfumes',views.purfumes,name='purfumes'),
     path('sanitary',views.sanitary,name='sanitary'),
     path('search',views.search,name='search'),
+    path('non_veg',views.non_veg,name='non_veg'),
 ]

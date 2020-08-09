@@ -1,0 +1,68 @@
+{% extends 'base.html'%} {% block content %}
+
+<div class="banner-top">
+    <div class="container">
+        <h3>Non Veg</h3>
+        <h4><a href="/">Home</a><label>/</label>Non Veg</h4>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3>Non Veg</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class=" con-w3l agileinf">
+            {% for item in non_veg %}
+            <div class="col-md-3 pro-1">
+                <div class="col-m">
+                    <a href="{% url 'product_details' pk=item.pk %}" class="offer-img">
+                        <img src="{{item.image.url}}" style="height:150px;width:150px;" class="img-responsive" alt=""> {% if item.out_of_stock == 'True' %}
+                        <div class="offer">
+                            <p><span>Not Available</span></p>
+                        </div>
+                        {% endif %}
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            <h6><a href="{% url 'product_details' pk=item.pk %}">{{item.product_name}}</a>( {{item.quantity}} )</h6>
+                            {% if item.brand %}
+                            <p style="margin-top: 5px;color:gray;">{{item.brand}}</p>
+                            {% else %}
+                            <p style="margin-top: 5px;color:gray;"> favshops</p>
+                            {% endif %}
+                        </div>
+                        <div class="mid-2">
+                            {% if item.discount_percentage != "0" %}
+                            <p style="color:black;"><label><span>&#8377;</span>{{item.mrp}}</label><em class="item_price"><span>&#8377;</span>{{item.discount_price}}</em><span style="margin-left: 10px;color:red;font-weight:bold;"> {{item.discount_percentage}} % OFF</span></p>
+
+                            {% else %}
+                            <p style="color:black;"><em class="item_price"><span>&#8377;</span>{{item.discount_price}}</em></p>
+                            {% endif %}
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add">
+                            {% if user.is_authenticated %} {% if item.out_of_stock == 'False' %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b btn-ajax" data-pid="{{item.pk}}">Add to Cart</button> {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-pid="{{item.pk}}" disabled>Add to Cart</button>{% endif %} {% else %}
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-toggle="modal" data-target="#myModalopen">Add to Cart</button>{% endif %}
+                        </div>
+                        <h6 id="msg{{item.pk}}" style="color: green;text-align:center;"></h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
