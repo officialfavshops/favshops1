@@ -221,21 +221,6 @@ def cart_checkout(request):
 
 
 
-def create_order(request,response_dict):
-    mnumber = request.user.mobile_number
-    total = 0.0
-    response_dict = response_dict
-
-    cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
-    address = Address.objects.filter(mobile_number = mnumber).first()
-    total_product = len(cart)
-    for data in cart:
-        total += float(data.product.discount_price) * float(data.customer_quantity)
-
-    id = Order.get_order_id(request)
-    order = Order(order_id = id,mobile_number=request.user.mobile_number,cart=cart,total_price = total,address=address)
-    order.save()
-    return render(request,'paymentstatus.html',{'response': response_dict})
 
 def generate_id():
     order = Order.objects.order_by('-order_date')
@@ -301,6 +286,66 @@ def create_order_paytm(request):
    # return redirect('cart_checkout')
 
 
+
+def create_order(request,response_dict):
+    mnumber = request.user.mobile_number
+    total = 0.0
+    response_dict = response_dict
+    final_price = response_dict['TXN_AMOUNT']
+    orderid = response_dict['ORDER_ID']
+
+    cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
+    address = Address.objects.filter(mobile_number = mnumber).first()
+    al_number = ","
+    if address.alternate_number:
+        al_number = address.alternate_number
+    full_name = address.full_name
+
+    total_address = full_name + " , " + address.at + " , " + address.landmark + " , " + address.panchayat + " , " + address.dist + " , " + address.pin + " , " + al_number
+    total_product = len(cart)
+
+    id = orderid
+    payment_mode = 'Paytm'
+    status = 'Shipping'
+    for item in cart:
+        brand = ''
+        if item.product.brand:
+            brand = item.product.brand
+        else:
+            brand = 'favshops'
+        order = Order(image=item.product.image,order_id=id,payment_mode=payment_mode,mobile_number = mnumber,name=item.product.product_name,brand=brand,quantity = item.product.quantity,price=item.product.discount_price,address=total_address,status=status,margin_price=item.product.margin_price,customer_quantity=item.customer_quantity)
+        order.save()
+
+    for item in cart:
+        item.delete()
+
+    return id,final_price
+
+    #return render(request,'paymentstatus.html',{'response': response_dict})
+
+
+@csrf_exempt
+def handlerequest(request):
+
+    form = request.POST
+    response_dict = {}
+    for i in form.keys():
+        response_dict[i] = form[i]
+        if i == 'CHECKSUMHASH':
+            checksum = form[i]
+
+    verify = Checksum.verify_checksum(response_dict, MERCHANTKEY, checksum)
+
+    if verify:
+        if response_dict['RESPCODE'] == '01':
+            id,final_price = create_order(response_dict)
+            return render(request,'success_order.html',{'id':id,'total':final_price})
+        else:
+            print('order was not successful because' + response_dict['RESPMSG'])
+    return render(request,'paymentstatus.html',{'response': response_dict})
+
+
+
 def create_order_cod(request):
     mnumber = request.user.mobile_number
     total = 0.0
@@ -350,25 +395,6 @@ def create_order_cod(request):
     return id,final_price,total_address
 
 
-@csrf_exempt
-def handlerequest(request):
-
-    form = request.POST
-    response_dict = {}
-    for i in form.keys():
-        response_dict[i] = form[i]
-        if i == 'CHECKSUMHASH':
-            checksum = form[i]
-
-    verify = Checksum.verify_checksum(response_dict, MERCHANTKEY, checksum)
-
-    if verify:
-        if response_dict['RESPCODE'] == '01':
-            create_order(response_dict)
-            print('Order placed successfully !!!')
-        else:
-            print('order was not successful because' + response_dict['RESPMSG'])
-    return render(request,'paymentstatus.html',{'response': response_dict})
 
 
 def payment_mode(request):
