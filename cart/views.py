@@ -293,7 +293,6 @@ def create_order(request,id,amount):
     orderid = id
 
     mnumber = request.user.mobile_number
-    
 
     cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
     address = Address.objects.filter(mobile_number = mnumber).first()
@@ -307,7 +306,7 @@ def create_order(request,id,amount):
 
     id = orderid
     payment_mode = 'Paytm'
-    status = 'Shipping'
+    status = 'Packed'
     for item in cart:
         brand = ''
         if item.product.brand:
@@ -355,6 +354,10 @@ def handlerequest(request):
             return render(request,'success_order.html',{'id':id,'total':final_price})
         else:
             print('order was not successful because' + response_dict['RESPMSG'])
+            id = response_dict['ORDERID']
+            orders = Order.objects.filter(order_id = id)
+            for ord in orders:
+                ord.status = 'Failed'
     return render(request,'paymentstatus.html',{'response': response_dict})
 
 
@@ -393,7 +396,7 @@ def create_order_cod(request):
     ordid = generate_id()
     id = ordid
     payment_mode = 'COD'
-    status = 'Shipping'
+    status = 'Packed'
     for item in cart:
         brand = ''
         if item.product.brand:

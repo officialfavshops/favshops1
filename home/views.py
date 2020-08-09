@@ -168,7 +168,7 @@ def not_delivered(request):
 def order_packed(request,pk):
     order = Order.objects.get(pk=pk)
     order.packed = True
-    order.status = 'Packed'
+    order.status = 'Shipped'
     order.save()
     return redirect('delivery_boy_page')
 

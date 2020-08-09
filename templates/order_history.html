@@ -32,7 +32,7 @@
 
                 </div>
                 <div class="forg">
-                    {% if not order.packed and not order.delivered %}
+                    {% if not order.packed and not order.delivered and order.status != 'Failed' %}
                     <a href="{% url 'order/cancel_order' pk=order.pk %}" class="forg-right" style="margin-top: 3px;margin-right:2px;"><button class="btn btn-warning">Cancel Order</button></a>{% endif %}
                     <div class="clearfix"></div>
                 </div>

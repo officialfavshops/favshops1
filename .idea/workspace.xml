@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="144a685f-a4cd-48c8-ac21-1c110d2a2ea8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/paymentstatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paymentstatus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/not_delivered.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/not_delivered.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payment_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
