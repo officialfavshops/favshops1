@@ -342,6 +342,9 @@ def handlerequest(request):
             #id,final_price = create_order(request,response_dict)
             id = response_dict['ORDERID']
             final_price = response_dict['TXNAMOUNT']
+            orders = Order.objects.filter(order_id = id)
+            for ord in orders:
+                ord.paid_status = 'Paid'
 
             order = Order.objects.filter(order_id = id).first()
             number = order.mobile_number

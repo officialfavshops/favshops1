@@ -103,6 +103,7 @@
         {% else %}
         <p style="font-size: 20px;"><span style="font-weight: bold;color:black;">Total : </span><span>{{item.0.0}}</span></p>
         <p style="font-size: 20px;"><span style="font-weight: bold;color:black;">Address : </span><span>{{item.0.1}}</span></p>
+        <p style="font-size: 20px;"><span style="font-weight: bold;color:black;">Paid Status : </span><span>{{item.0.3}}</span></p>
         <p style="font-size: 20px;"><span style="font-weight: bold;color:black;">Contact No. : </span><span><a href="tel:{{item.0.2}}" style="text-decoration: none;">{{item.0.2}}</a></span></p>
         <p>
             <form action="{% url 'order_delivered' %}" method="POST">

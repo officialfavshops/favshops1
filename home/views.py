@@ -151,8 +151,13 @@ def not_delivered(request):
 
 
         final_price = delivery_charge + total_price
-    
-        price_address = [(final_price,address,contactno),]
+        paid_status = ''
+        if order.paid_status:
+            paid_status = 'Paid'
+        else:
+            paid_status = 'Not Paid'
+
+        price_address = [(final_price,address,contactno,paid_status),]
         list.append(price_address)
         dict[id] = list
         dict_total[id] = final_price

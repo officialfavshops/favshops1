@@ -23,6 +23,7 @@ class Order(models.Model):
     status = models.CharField(max_length=30,null=True,blank=True)
     delivered_date = models.DateTimeField(null=True,blank=True)
     margin_price = models.CharField(max_length=100,null=True,blank=True)
+    paid_status = models.CharField(max_length=30,blank=True,null=True)
 
 
 class Admin_order_summary(models.Model):
