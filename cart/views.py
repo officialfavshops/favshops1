@@ -288,7 +288,9 @@ def create_order_paytm(request):
 
 
 def create_order(request,response_dict):
-    mnumber = request.user.mobile_number
+    email = response_dict['CUST_ID']
+    user = User.objects.get(email = email)
+    mnumber = user.mobile_number
     total = 0.0
     response_dict = response_dict
     final_price = response_dict['TXN_AMOUNT']
@@ -343,6 +345,7 @@ def handlerequest(request):
         else:
             print('order was not successful because' + response_dict['RESPMSG'])
     return render(request,'paymentstatus.html',{'response': response_dict})
+
 
 
 
