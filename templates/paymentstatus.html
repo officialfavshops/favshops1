@@ -52,9 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h1><a href="{% url 'index' %}" style="font-weight: bold;text-align:center;"><b>F<br>A<br>V</b>FAVShops<span>Your Family market</span></a></h1>
             </div>
             <div class="form-w3agile" style="margin-top: 10px;">
-                <h3> Your order is placed </h3>
-                <h4> Your Order Id : <strong>{{id}}</strong></h4>
-                <h5> Total Price : <strong>{{total}}</strong></h5>
+
                 <img src="{% static 'template/payment_fail01.jpg' %}" width="600" class="img img-responsive" alt="" style="margin-top: 5px;">
                 <a href="{% url 'index' %}"> <button class="btn btn-success" style="text-align: center;margin-top:15px;"> Back to Home </button> </a>
                 <a href="{% url 'cart_checkout' %}"> <button class="btn btn-info" style="text-align: center;margin-top:15px;"> Payment Page </button> </a>
@@ -66,8 +64,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <br>
                 <ol>
                     <li>Payment status regarding your order Id {{response.ORDERID}}</li>
-                    <h2><span style="font-weight: bold;">STATUS : </span> Failure</h2>
-                    <h4>{{response.RESPMSG}}</h4>
+                    <li><span style="font-weight: bold;">STATUS : </span> Failure</li>
+                    <li>{{response.RESPMSG}}</li>
                     <li></li>
                 </ol>
                 <div class="clearfix"></div>
