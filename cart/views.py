@@ -295,7 +295,7 @@ def create_order_paytm(request):
             }
     param_dict = data_dict
     param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(data_dict, MERCHANTKEY)
-    return render(request, 'paytm.html', {'param_dict': param_dict})
+    return param_dict
 
 
    # return redirect('cart_checkout')
@@ -387,7 +387,8 @@ def payment_mode(request):
                 return render(request,'success_order.html',{'id':id,'total':total})
 
         elif mode == 'paytm':
-            create_order_paytm()
+            param_dict = create_order_paytm(request)
+            return render(request, 'paytm.html', {'param_dict': param_dict})
 
         else:
             print('hello')
