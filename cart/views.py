@@ -288,7 +288,7 @@ def create_order_paytm(request):
 
 
 def create_order(request,id,amount):
-    response_dict = response_dict
+    
     final_price = amount
     orderid = id
 
