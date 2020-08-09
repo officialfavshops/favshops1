@@ -15,7 +15,7 @@ from django.core.mail import send_mail
 
 
 #MERCHENTID = 'rJXvah34753603915703'
-MERCHANTKEY = 'HnK5X1vX%i!5cTHb'
+MERCHANTKEY = 'hTF&Qc@AU9Vf_NdM'
 
 orderid = 'FAV0000'
 
@@ -282,9 +282,9 @@ def create_order_paytm(request):
     id = ordid
     payment_mode = ''
     status = 'Shipping'
-    
+
     data_dict = {
-            'MID': 'OihTwq23202901931701',
+            'MID': 'rJXvah34753603915703',
             'ORDER_ID': str(ordid),
             'TXN_AMOUNT': str(final_price),
             'CUST_ID': request.user.email,
@@ -297,7 +297,7 @@ def create_order_paytm(request):
     param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(data_dict, MERCHANTKEY)
     return render(request, 'paytm.html', {'param_dict': param_dict})
 
-    
+
    # return redirect('cart_checkout')
 
 
