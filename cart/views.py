@@ -387,7 +387,7 @@ def payment_mode(request):
                 return render(request,'success_order.html',{'id':id,'total':total})
 
         elif mode == 'paytm':
-            create_order_paytm(request)
+            create_order_paytm()
 
         else:
             print('hello')
