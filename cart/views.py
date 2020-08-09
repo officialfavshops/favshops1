@@ -291,7 +291,7 @@ def create_order_paytm(request):
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL':'http://localhost:8000/cart/handlerequest/',
+            'CALLBACK_URL':'https://www.favshops.com/cart/handlerequest/',
             }
     param_dict = data_dict
     param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(data_dict, MERCHANTKEY)
