@@ -358,6 +358,7 @@ def handlerequest(request):
     orders = Order.objects.filter(order_id = id)
     for ord in orders:
         ord.status = 'Failed'
+        ord.save()
     return render(request,'paymentstatus.html',{'response': response_dict})
 
 
