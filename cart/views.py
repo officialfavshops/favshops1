@@ -420,7 +420,7 @@ def payment_mode(request):
             param_dict = create_order_paytm(request)
             final_price = param_dict['TXN_AMOUNT']
             orderid = param_dict['ORDER_ID']
-            create_order(orderid,final_price)
+            create_order(request,orderid,final_price)
             return render(request, 'paytm.html', {'param_dict': param_dict})
 
         else:
