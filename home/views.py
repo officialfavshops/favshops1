@@ -87,7 +87,7 @@ def product_details(request,pk):
     return render(request,'product_details.html',{'product':prod,'related':related})
 
 def delivery_boy(request):
-    not_packed = Order.objects.filter(packed = False).order_by('order_id').filter(delivered=False).filter(order_canceled=False).filter(status != 'Failed')
+    not_packed = Order.objects.filter(packed = False).order_by('order_id').filter(delivered=False).filter(order_canceled=False).exclude(status = 'Failed')
     not_delivered = Order.objects.filter(delivered=False)
 
     not_packed_ids = set([i.order_id for i in not_packed])
@@ -109,7 +109,7 @@ def delivery_boy(request):
 
 
 def not_delivered(request):
-    not_delivered = Order.objects.filter(delivered=False).filter(packed=True).order_by('order_id').filter(order_canceled = False).filter(status != 'Failed')
+    not_delivered = Order.objects.filter(delivered=False).filter(packed=True).order_by('order_id').filter(order_canceled = False).exclude(status = 'Failed')
 
     not_delivered_ids = set([i.order_id for i in not_delivered])
     sorted_not_delivered_ids = sorted(not_delivered_ids)

@@ -37,8 +37,8 @@ def order_delivered(request):
         order_time = ''
         delivered_time = datetime.now()
 
-        co_orders = Order.objects.filter(order_id = ord_id).filter(order_canceled = False).filter(delivered=False).filter(status != 'Failed')
-        can_orders = Order.objects.filter(order_id = ord_id).filter(order_canceled = True).filter(delivered=False).filter(status != 'Failed')
+        co_orders = Order.objects.filter(order_id = ord_id).filter(order_canceled = False).filter(delivered=False).exclude(status = 'Failed')
+        can_orders = Order.objects.filter(order_id = ord_id).filter(order_canceled = True).filter(delivered=False).exclude(status = 'Failed')
         order_margin_price = 0.0
         order_delivery_charges = 0
 
