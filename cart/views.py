@@ -287,14 +287,13 @@ def create_order_paytm(request):
 
 
 
-def create_order(request,response_dict):
-    email = response_dict['CUST_ID']
-    user = User.objects.get(email = email)
-    mnumber = user.mobile_number
-    total = 0.0
+def create_order(request,id,amount):
     response_dict = response_dict
-    final_price = response_dict['TXN_AMOUNT']
-    orderid = response_dict['ORDER_ID']
+    final_price = amount
+    orderid = id
+
+    mnumber = request.user.mobile_number
+    
 
     cart = Cart.objects.filter(mobile_number = mnumber).order_by('-add_time')
     address = Address.objects.filter(mobile_number = mnumber).first()
@@ -318,10 +317,10 @@ def create_order(request,response_dict):
         order = Order(image=item.product.image,order_id=id,payment_mode=payment_mode,mobile_number = mnumber,name=item.product.product_name,brand=brand,quantity = item.product.quantity,price=item.product.discount_price,address=total_address,status=status,margin_price=item.product.margin_price,customer_quantity=item.customer_quantity)
         order.save()
 
-    for item in cart:
-        item.delete()
+    #for item in cart:
+        #item.delete()
 
-    return id,final_price
+    #return id,final_price
 
     #return render(request,'paymentstatus.html',{'response': response_dict})
 
@@ -340,7 +339,9 @@ def handlerequest(request):
 
     if verify:
         if response_dict['RESPCODE'] == '01':
-            id,final_price = create_order(request,response_dict)
+            #id,final_price = create_order(request,response_dict)
+            id = response_dict['ORDERID']
+            final_price = response_dict['TXNAMOUNT']
             return render(request,'success_order.html',{'id':id,'total':final_price})
         else:
             print('order was not successful because' + response_dict['RESPMSG'])
@@ -417,6 +418,9 @@ def payment_mode(request):
 
         elif mode == 'paytm':
             param_dict = create_order_paytm(request)
+            final_price = param_dict['TXN_AMOUNT']
+            orderid = param_dict['ORDER_ID']
+            create_order(orderid,final_price)
             return render(request, 'paytm.html', {'param_dict': param_dict})
 
         else:
