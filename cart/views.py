@@ -344,6 +344,7 @@ def handlerequest(request):
             orders = Order.objects.filter(order_id = id)
             for ord in orders:
                 ord.paid_status = 'Paid'
+                ord.save()
 
             order = Order.objects.filter(order_id = id).first()
             number = order.mobile_number
