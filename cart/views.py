@@ -351,7 +351,7 @@ def handlerequest(request):
             for item in cart:
                 item.delete()
 
-            return render(request,'success_order.html',{'id':id,'total':final_price})
+            return render(request,'success_order.html',{'id':id,'total':final_price,'response_dict':response_dict})
         else:
             print('order was not successful because' + response_dict['RESPMSG'])
     id = response_dict['ORDERID']

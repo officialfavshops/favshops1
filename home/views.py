@@ -34,8 +34,9 @@ def index(request):
     detergent = Product.objects.filter(category='detergent').order_by('-upload_time')
     finail = Product.objects.filter(category='Finail').order_by('-upload_time')
     yeepi = Product.objects.filter(category='Yeepi noodles').order_by('-upload_time')
+    non_veg = Product.objects.filter(category='Non Veg').order_by('-upload_time')
 
-    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks,'tea':tea,'biscuts':biscuts,'tooth_paste':tooth_paste,'soap':soap,'sanitary':sanitary,'purfumes':purfumes,'powders':powders,'face_cream':face_cream,'detergent':detergent,'finail':finail,'yeepi':yeepi})
+    return render(request,'index.html',{'special_offer':special_offer,'cartlen':cartlen,'cart':cart,'grocery':grocery,'snacks':snacks,'masala':masala,'beauty_products':beauty_products,'hair_oil':hair_oil,'cold_drinks':cold_drinks,'tea':tea,'biscuts':biscuts,'tooth_paste':tooth_paste,'soap':soap,'sanitary':sanitary,'purfumes':purfumes,'powders':powders,'face_cream':face_cream,'detergent':detergent,'finail':finail,'yeepi':yeepi,'non_veg':non_veg})
 
 def cart_page(request):
     mnumber = request.user.mobile_number
