@@ -50,7 +50,7 @@ def order_delivered(request):
                 brand = 'favshops'
             item = ord.name + " | " + brand + " | " + ord.quantity + " | " + ord.price + " | " + ord.customer_quantity
             confirm_order += item + " , "
-            order_margin_price += float(ord.margin_price)
+            order_margin_price += float(ord.margin_price) * float(ord.customer_quantity)
             mnumber = ord.mobile_number
             address = ord.address
             order_time = ord.order_date
