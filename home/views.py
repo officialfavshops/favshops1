@@ -70,7 +70,7 @@ def order_history(request):
     orders = Order.objects.filter(mobile_number = mnumber).order_by('-order_date').filter(order_canceled=False)
     total = 0.0
     for ord in orders:
-        total += float(ord.price)
+        total += float(ord.price) * float(ord.customer_quantity)
 
     return render(request,'order_history.html',{'orders':orders,'total':total})
 
