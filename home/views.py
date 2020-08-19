@@ -68,11 +68,24 @@ def about(request):
 def order_history(request):
     mnumber = request.user.mobile_number
     orders = Order.objects.filter(mobile_number = mnumber).order_by('-order_date').filter(order_canceled=False)
-    total = 0.0
+    total_price = 0.0
+    delivery_charge = 0
     for ord in orders:
-        total += float(ord.price) * float(ord.customer_quantity)
+        total_price += float(ord.price) * float(ord.customer_quantity)
 
-    return render(request,'order_history.html',{'orders':orders,'total':total})
+    if total_price <= 100:
+        delivery_charge = 10
+    elif total_price > 100 and total_price <= 200:
+        delivery_charge = 15
+    elif total_price > 200 and total_price <= 350:
+        delivery_charge = 20
+    elif total_price > 350 and total_price <= 500:
+        delivery_charge = 25
+    else:
+        delivery_charge = 0
+    
+
+    return render(request,'order_history.html',{'orders':orders,'total':total_price})
 
 def contact(request):
     return render(request,'contact.html')
